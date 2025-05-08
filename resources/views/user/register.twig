@@ -1,0 +1,75 @@
+{% extends 'layout.Twig' %}
+{% block title %}{{ trans("Sign up to Hoym") }} · {{ trans("Site title") }}{% endblock %}
+
+{% block container %}
+    <div class="page-content">
+        {% block main %}
+            <div class="d-flex flex-auto flex-column flex-lg-row min-vh-100">
+                <div class="signups-rebrand-container-marketing col-6 p-5">
+                    <h1 class="text-white fw-normal">{{ trans("Create your account") }}</h1>
+                    <p class="lead text-white-50"><em>{{ trans("Explore hoym core features for individuals and organizations.") }}</em></p>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex p-4 justify-content-end">
+                        <div class="mt-3 mt-md-0">
+                            <span class="mr-2">{{ trans("Already have an account?") }}</span>
+                            <a href="{{ url('authorize.login') }}" class="fw-medium">{{ trans("Sign in") }} →</a>
+                        </div>
+                    </div>
+                    <div class="register-box">
+                        <h3 id="registerTitle" class="mb-4 fw-normal">{{ trans("Sign up to Hoym") }}</h3>
+                        <div class="card-body">
+                            <form id="form" action="{{ url('user.register') }}">
+                                <div id="step1">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="email">{{ trans("Email") }}<span class="text-danger">*</span></label>
+                                        <input class="form-control" name="email" type="email" id="email" data-rule="required" autocomplete="off">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="password">{{ trans("Password") }}<span class="text-danger">*</span></label>
+                                        <input class="form-control" name="password" type="password" data-rule="required" id="password">
+                                        <p class="mt-1"><small>{{ trans("Password should be at least 15 characters OR at least 8 characters including a number and a lowercase letter.") }}</small></p>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="username">{{ trans("Username") }}<span class="text-danger">*</span></label>
+                                        <input class="form-control" name="username" type="text" data-rule="required" id="username" autocomplete="off">
+                                        <p class="mt-1"><small>{{ trans("Username may only contain alphanumeric characters or single hyphens, and cannot begin or end with a hyphen.") }}</small></p>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <input class="form-check-input" type="checkbox" id="checkbox-subscription">
+                                        <label class="form-check-label ms-1" for="checkbox-subscription">{{ trans("Get occasional updates and news") }}</label>
+                                    </div>
+                                    <div class="form-group mb-0 text-center">
+                                        <button class="btn btn-primary waves-effect waves-light w-100 fw-medium" id="btnStep1">{{ trans("Continue") }}</button>
+                                    </div>
+                                </div>
+
+                                <div id="step2" class="form-group d-none step2">
+                                    <div class="input-group mb-4">
+                                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username">
+                                        <button class="btn btn-dark waves-effect waves-light" type="button">Button</button>
+                                        <p class="mt-1"><small>{{ trans("Please verify your email so we can securely create your account.") }}</small></p>
+                                    </div>
+                                    <div class="form-group mb-0 text-center">
+                                        <button class="btn btn-primary waves-effect waves-light w-100 fw-medium" id="btnStep2">{{ trans("Continue") }}</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+        Do('base', 'form', () => {
+            NProgress.start();
+            NProgress.done();
+            $('#form').isForm();
+        });
+    </script>
+{% endblock %}
+

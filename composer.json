@@ -1,0 +1,71 @@
+{
+  "name": "warrior-php/download-cms",
+  "type": "project",
+  "keywords": [
+    "high performance",
+    "http service",
+    "download cms"
+  ],
+  "homepage": "https://warriorphp.com",
+  "license": "MIT",
+  "description": "High performance HTTP Service Framework.",
+  "authors": [
+    {
+      "name": "warrior",
+      "email": "support@warriorphp.com",
+      "homepage": "https://warriorphp.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "support@warriorphp.com",
+    "issues": "https://github.com/warrior-php/download-cms/issues",
+    "forum": "https://warriorphp.com/forum",
+    "wiki": "https://warriorphp.com/doc/download-cms",
+    "source": "https://github.com/warrior-php/download-cms"
+  },
+  "require": {
+    "php": ">=8.3",
+    "ext-pdo": "*",
+    "ext-curl": "*",
+    "workerman/webman-framework": "^2.1",
+    "monolog/monolog": "^2.0",
+    "symfony/var-dumper": "^7.2",
+    "webman/database": "^2.1",
+    "illuminate/pagination": "^12.12",
+    "illuminate/events": "^12.12",
+    "webman/redis": "^2.1",
+    "twig/twig": "^3.20",
+    "symfony/translation": "^7.2",
+    "webman/rate-limiter": "^1.1",
+    "doctrine/annotations": "^1.14",
+    "webman/captcha": "^1.0",
+    "vlucas/phpdotenv": "^5.6",
+    "webman/event": "^1.0",
+    "respect/validation": "^2.4",
+    "psr/container": "^1.1.1",
+    "php-di/php-di": "^6.3"
+  },
+  "suggest": {
+    "ext-event": "For better performance. "
+  },
+  "autoload": {
+    "psr-4": {
+      "": "./",
+      "App\\": "./app"
+    }
+  },
+  "scripts": {
+    "post-package-install": [
+      "support\\Plugin::install"
+    ],
+    "post-package-update": [
+      "support\\Plugin::install"
+    ],
+    "pre-package-uninstall": [
+      "support\\Plugin::uninstall"
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

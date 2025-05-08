@@ -1,0 +1,50 @@
+.nice-validator input, .nice-validator select, .nice-validator textarea, .nice-validator [contenteditable], .msg-wrap, .n-icon, .n-msg {
+    display: inline-block;
+}
+
+.n-msg {
+    font-size: .75rem;
+}
+
+.nice-validator .n-box {
+    display: block
+}
+
+.nice-validator .msg-wrap {
+    position: static
+}
+
+.n-box {
+    position: relative;
+    line-height: 1.5715;
+    padding: 4px 0;
+}
+
+.msg-wrap {
+    position: relative;
+    white-space: nowrap;
+    font-size: 14px;
+    z-index: 1
+}
+
+.n-error {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity));
+}
+
+.n-invalid {
+    --bs-text-opacity: 1;
+    border-color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity)) !important;
+}
+
+.n-valid {
+    --bs-text-opacity: 1;
+    border-color: rgba(var(--bs-success-rgb), var(--bs-text-opacity)) !important;
+}
+
+.form-horizontal .n-right .msg-wrap, .input-group .n-right .msg-wrap {
+    position: absolute;
+    white-space: nowrap;
+    right: 100%;
+    margin-right: 8px;
+}
