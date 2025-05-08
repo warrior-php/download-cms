@@ -6,7 +6,7 @@ namespace App\Controllers\Authorize;
 use Exception;
 use support\Request;
 use support\Response;
-use Webman\RateLimiter\Annotation\RateLimiter;
+use Warrior\RateLimiter\Annotation\RateLimiter;
 
 class Index extends Common
 {

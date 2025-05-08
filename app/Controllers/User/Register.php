@@ -6,7 +6,7 @@ namespace App\Controllers\User;
 use App\Services\UserService;
 use support\Request;
 use support\Response;
-use Webman\RateLimiter\Annotation\RateLimiter;
+use Warrior\RateLimiter\Annotation\RateLimiter;
 
 class Register extends Common
 {

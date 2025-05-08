@@ -37,14 +37,15 @@
     "webman/redis": "^2.1",
     "twig/twig": "^3.20",
     "symfony/translation": "^7.2",
-    "webman/rate-limiter": "^1.1",
     "doctrine/annotations": "^1.14",
     "webman/captcha": "^1.0",
     "vlucas/phpdotenv": "^5.6",
     "webman/event": "^1.0",
     "respect/validation": "^2.4",
     "psr/container": "^1.1.1",
-    "php-di/php-di": "^6.3"
+    "php-di/php-di": "^6.3",
+    "warrior-php/console": "^1.0",
+    "warrior-php/rate-limiter": "^1.0"
   },
   "suggest": {
     "ext-event": "For better performance. "

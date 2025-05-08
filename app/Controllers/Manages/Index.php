@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controllers\Manages;
 
-use Webman\RateLimiter\Annotation\RateLimiter;
+use Warrior\RateLimiter\Annotation\RateLimiter;
 
 class Index extends Common
 {
