@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace App\Validations;
 
-use Exception;
 use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator;
+use support\exception\BusinessException;
 
 abstract class Validation
 {
@@ -21,7 +21,7 @@ abstract class Validation
      *
      * @param array|null $data 要验证的数据，默认取 request()->post()
      *
-     * @throws Exception 如果验证失败
+     * @throws BusinessException 如果验证失败
      */
     public function validate(?array $data = null): void
     {
@@ -42,7 +42,7 @@ abstract class Validation
                 $messages = $e->getMessages();
                 $error = array_values($messages)[0] ?? trans("Field validation failed");
 
-                throw new Exception(message: $error, code: 422);
+                throw new BusinessException(message: $error, code: 422);
             }
         }
     }

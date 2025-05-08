@@ -55,9 +55,7 @@ class InitApp implements MiddlewareInterface
 
         // 已安装 & 是安装控制器 -> 抛出异常阻止重复安装
         if ($isInstalled && $isInstallController) {
-            throw new BusinessException(
-                message: trans("The system has been installed. To reinstall, delete the resources/install.lock file.")
-            );
+            throw new BusinessException(message: trans("The system has been installed. To reinstall, delete the resources/install.lock file."));
         }
 
         // 共享全局视图变量

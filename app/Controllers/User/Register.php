@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace App\Controllers\User;
 
 use App\Services\UserService;
-use Exception;
 use support\Request;
 use support\Response;
 use Webman\RateLimiter\Annotation\RateLimiter;
@@ -25,7 +24,6 @@ class Register extends Common
      * @param Request $request
      *
      * @return Response
-     * @throws Exception
      */
     #[RateLimiter(limit: 3, ttl: 1)]
     public function register(Request $request): Response

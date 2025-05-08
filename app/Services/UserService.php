@@ -5,7 +5,6 @@ namespace App\Services;
 
 use App\Models\UserModel;
 use App\Validations\UserValidation;
-use Exception;
 
 class UserService
 {
@@ -21,7 +20,6 @@ class UserService
      * 用户注册
      *
      * @return void
-     * @throws Exception
      */
     public function register(): void
     {
