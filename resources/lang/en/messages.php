@@ -10,6 +10,7 @@ return [
     "Back to previous page"                                                                                                                              => "Back to previous page",
     "It's looking like you may have taken a wrong turn. Don't worry... it happens to the best of us. You might want to check your internet connection. " => "It's looking like you may have taken a wrong turn. Don't worry... it happens to the best of us. You might want to check your internet connection. ",
     "Field validation failed"                                                                                                                            => "Field validation failed",
+    "The system has been installed. To reinstall, delete the resources/install.lock file."                                                               => "The system has been installed. To reinstall, delete the resources/install.lock file.",
 
     "Sign in"                                                                                                       => "Sign in",
     "Sign up"                                                                                                       => "Sign up",

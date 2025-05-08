@@ -10,6 +10,8 @@ return [
     "Back to previous page"                                                                                                                              => "返回上一页",
     "It's looking like you may have taken a wrong turn. Don't worry... it happens to the best of us. You might want to check your internet connection. " => "It's looking like you may have taken a wrong turn. Don't worry... it happens to the best of us. You might want to check your internet connection. ",
     "Field validation failed"                                                                                                                            => "字段验证失败",
+    "The system has been installed. To reinstall, delete the resources/install.lock file."                                                               => "系统已安装完毕，如需重新安装，请删除 resources/install.lock 文件。",
+
 
     "Sign in"                                                                                                       => "登录",
     "Sign up"                                                                                                       => "注册",
