@@ -18,12 +18,7 @@ class SubMailService
     /**
      * 服务配置数组
      *
-     * @var array{
-     *     appid: string,
-     *     appkey: string,
-     *     api: array{timestamp: string, send: string},
-     *     default_from: string
-     * }
+     * @var array
      */
     private array $config;
 
