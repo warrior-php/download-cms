@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Models\UserModel;
-use App\Validations\UserValidation;
+use App\Validates\UserValidate;
 
 class UserService
 {
@@ -12,9 +12,9 @@ class UserService
      * 注入验证依赖
      *
      * @Inject
-     * @var UserValidation
+     * @var UserValidate
      */
-    protected UserValidation $userValidation;
+    protected UserValidate $userValidation;
 
     /**
      * 用户注册

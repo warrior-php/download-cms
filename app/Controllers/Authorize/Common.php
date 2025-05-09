@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controllers\Authorize;
 
-use App\Validations\AuthorizeValidation;
+use App\Validates\AuthorizeValidate;
 
 class Common
 {
@@ -11,9 +11,9 @@ class Common
      * 注入验证依赖
      *
      * @Inject
-     * @var AuthorizeValidation
+     * @var AuthorizeValidate
      */
-    protected AuthorizeValidation $authorizeValidation;
+    protected AuthorizeValidate $authorizeValidation;
 
     /**
      * 无需登录的操作列表

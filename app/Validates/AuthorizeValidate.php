@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Validations;
+namespace App\Validates;
 
 use Respect\Validation\Validator as v;
 
 /**
- * Class AuthorizeValidation
+ * Class AuthorizeValidate
  * 登录/授权相关的验证规则
  */
-class AuthorizeValidation extends Validation
+class AuthorizeValidate extends Validate
 {
     /**
      * 定义字段验证规则

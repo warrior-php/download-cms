@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-use support\View\TwigExtend;
-use support\View\TwigView;
+use App\View\TwigExtend;
+use App\View\TwigView;
 
 return [
     'handler' => TwigView::class,

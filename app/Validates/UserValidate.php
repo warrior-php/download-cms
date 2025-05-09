@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Validations;
+namespace App\Validates;
 
 use Respect\Validation\Validator as v;
 
@@ -9,9 +9,9 @@ use Respect\Validation\Validator as v;
  * 用户数据验证器
  *
  * 用于验证用户相关字段的数据格式是否符合要求，
- * 如用户名、邮箱、密码等。继承自通用验证基类 Validation。
+ * 如用户名、邮箱、密码等。继承自通用验证基类 Validate。
  */
-class UserValidation extends Validation
+class UserValidate extends Validate
 {
     /**
      * 定义各字段的验证规则

@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Validations;
+namespace App\Validates;
 
 use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator;
 use support\exception\BusinessException;
 
-abstract class Validation
+abstract class Validate
 {
     /**
      * 返回字段对应的验证规则
