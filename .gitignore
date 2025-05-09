@@ -10,3 +10,5 @@
 /windows.php
 /config/plugin
 /resources/install.lock
+/config/console.php
+/config/rate-limiter.php
