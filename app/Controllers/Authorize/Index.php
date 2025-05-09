@@ -6,7 +6,6 @@ namespace App\Controllers\Authorize;
 use Exception;
 use support\Request;
 use support\Response;
-use Warrior\RateLimiter\Annotation\RateLimiter;
 
 class Index extends Common
 {
@@ -18,7 +17,6 @@ class Index extends Common
      * @return Response
      * @throws Exception
      */
-    #[RateLimiter(limit: 3, ttl: 1)]
     public function login(Request $request): Response
     {
         if ($request->isAjax()) {
@@ -33,7 +31,6 @@ class Index extends Common
      *
      * @return string
      */
-    #[RateLimiter(limit: 3, ttl: 1)]
     public function logout(): string
     {
         return '退出';
@@ -44,7 +41,6 @@ class Index extends Common
      *
      * @return string
      */
-    #[RateLimiter(limit: 3, ttl: 1)]
     public function forget(): string
     {
         return '退出';

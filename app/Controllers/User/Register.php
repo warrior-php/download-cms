@@ -6,7 +6,6 @@ namespace App\Controllers\User;
 use App\Services\UserService;
 use support\Request;
 use support\Response;
-use Warrior\RateLimiter\Annotation\RateLimiter;
 
 class Register extends Common
 {
@@ -25,7 +24,6 @@ class Register extends Common
      *
      * @return Response
      */
-    #[RateLimiter(limit: 3, ttl: 1)]
     public function register(Request $request): Response
     {
         if ($request->isAjax()) {
