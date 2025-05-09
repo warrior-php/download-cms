@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View;
+namespace support\View;
 
 use Exception;
 use Twig\Extension\AbstractExtension;
