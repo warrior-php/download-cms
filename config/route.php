@@ -29,7 +29,7 @@ Route::group('/manages', function () {
 
 // Api相关
 Route::group('/api', function () {
-    Route::get('/index', [\App\Controllers\Api\V1\Index::class, 'index'])->name('api.index');
+    Route::get('/index', [App\Controllers\Api\V1\Index::class, 'index'])->name('api.index');
 });
 
 // 404处理路由
@@ -48,5 +48,5 @@ Route::fallback(function (Request $request, $status) {
         'timestamp'   => time()
     ];
 
-    return $request->expectsJson() ? json($responseData)->withStatus($status) : view('404', $responseData, 'Http')->withStatus($status);
+    return $request->expectsJson() ? json($responseData)->withStatus($status) : view('404', $responseData, 'public')->withStatus($status);
 });

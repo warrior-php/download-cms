@@ -44,7 +44,7 @@ class TwigView implements View
         $app = $app === null ? ($request->app ?? '') : $app;
         $configPrefix = $plugin ? "plugin.$plugin." : '';
         $viewSuffix = config("{$configPrefix}view.options.view_suffix", 'html');
-        $baseViewPath = $plugin ? base_path() . "/plugin/$plugin/app" : views_path();
+        $baseViewPath = $plugin ? base_path() . "/plugin/$plugin/app" : ($app == 'public' ? public_path() : views_path());
 
         if ($template[0] === '/') {
             $template = ltrim($template, '/');
@@ -57,6 +57,7 @@ class TwigView implements View
         } else {
             $viewPath = $app === '' ? "$baseViewPath/view/" : $baseViewPath;
         }
+        dump($viewPath);
 
         if (!isset($views[$viewPath])) {
             $views[$viewPath] = new Environment(new FilesystemLoader($viewPath), config("{$configPrefix}view.options", []));

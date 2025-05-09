@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}" data-layout="{% block layout %}horizontal{% endblock %}" data-menu-color="{% block menuColor %}light{% endblock %}" data-topbar-color="{% block topbarColor %}light{% endblock %}" data-bs-theme="{% block bsTheme %}light{% endblock %}">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
+    <meta content="{{ system_name }}" name="application-name"/>
+    <meta content="{{ version }}" name="version"/>
+    <meta content="{{ base_uri }}" name="base_uri"/>
+    <meta content="{{ csrf_token() }}" name="csrf-token"/>
+    <title>Error {{ code }}  {{ data.title }} | {{ trans("Site title") }}</title>
+    <!-- App favicon -->
+    <link href="{{ __PUBLIC__('images/favicon.ico') }}" rel="shortcut icon"/>
+    <!-- App css -->
+    <link href="{{ __PUBLIC__('css/style.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ __PUBLIC__('css/icons.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ __PUBLIC__('css/customize.css') }}" rel="stylesheet" type="text/css">
+    <!-- App script -->
+    <script type="text/javascript" src="{{ __PUBLIC__('js/do.min.js') }}"></script>
+    <script type="text/javascript" src="{{ __PUBLIC__('js/package.js') }}"></script>
+</head>
+<body>
+<div class="page-content p-5 min-vh-100">
+    <div class="row justify-content-center">
+        <div class="error-box">
+            <div class="card">
+                <div class="card-body p-4">
+                    <div class="text-center w-50 mx-auto my-4">
+                        <img src="{{ __PUBLIC__('images/' ~ code ~ '-error.svg') }}" title="invite.svg" alt="{{ data.title }}">
+                    </div>
+                    <h3 class="text-center mb-4 mt-3">{{ data.title }}</h3>
+                    <p class="text-muted text-center mt-3">{{ trans(data.content) }}</p>
+                    <div class="mt-4 text-center">
+                        <a href="{{ url('index') }}" class="btn btn-primary w-100">{{ trans("Back to previous page") }}</a>
+                    </div>
+                    <div class="mt-3 text-center">
+                        <a href="javascript:void(0);" class="card-link fw-medium">{{ trans("Back to Home") }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    Do('nprogress', () => {
+        NProgress.start();
+        NProgress.done();
+
+        const referrer = document.referrer;
+
+        if (referrer) {
+            console.log(referrer)
+        } else {
+            console.log('直接访问或无来源页面');
+        }
+    });
+</script>
+</body>
+</html>
