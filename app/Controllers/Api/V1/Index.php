@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controllers\Api;
+namespace App\Controllers\Api\V1;
 
 class Index
 {

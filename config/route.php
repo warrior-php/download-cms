@@ -29,7 +29,7 @@ Route::group('/manages', function () {
 
 // Api相关
 Route::group('/api', function () {
-    Route::get('/index', [App\Controllers\Api\Index::class, 'index'])->name('api.index');
+    Route::get('/index', [\App\Controllers\Api\V1\Index::class, 'index'])->name('api.index');
 });
 
 // 404处理路由

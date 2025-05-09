@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Models\UserModel;
-use App\Validates\UserValidate;
+use App\Rules\UserValidate;
 
 class UserService
 {

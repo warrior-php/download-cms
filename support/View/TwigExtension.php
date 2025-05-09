@@ -6,10 +6,10 @@ use Exception;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class TwigExtend extends AbstractExtension
+class TwigExtension extends AbstractExtension
 {
     /**
-     * 注册自定义 TwigExtend 函数
+     * 注册自定义 TwigExtension 函数
      *
      * @return array 返回包含 TwigFunction 实例的数组
      */

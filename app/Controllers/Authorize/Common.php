@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controllers\Authorize;
 
-use App\Validates\AuthorizeValidate;
+use App\Rules\AuthorizeValidate;
 
 class Common
 {
