@@ -57,7 +57,6 @@ class TwigView implements View
         } else {
             $viewPath = $app === '' ? "$baseViewPath/view/" : $baseViewPath;
         }
-        dump($viewPath);
 
         if (!isset($views[$viewPath])) {
             $views[$viewPath] = new Environment(new FilesystemLoader($viewPath), config("{$configPrefix}view.options", []));
