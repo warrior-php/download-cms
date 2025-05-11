@@ -25,7 +25,7 @@ class AuthorizeRule extends Rule
                 v::allOf( // 否则验证普通用户名规则
                     v::alnum()->setTemplate(trans("Usernames can only contain letters and numbers")),
                     v::noWhitespace()->setTemplate(trans("Username cannot contain spaces")),
-                    v::length(4, 18)->setTemplate(trans("Username must be between 4 and 20 characters long")),
+                    v::length(4, 18)->setTemplate(trans("Username must be between 4 and 18 characters long")),
                 ),
             ),
 
