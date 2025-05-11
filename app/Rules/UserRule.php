@@ -21,13 +21,18 @@ class UserRule extends Rule
     protected function rules(): array
     {
         return [
-            'username' => v::allOf(
-                v::alnum()->setTemplate(trans("Usernames can only contain letters and numbers")),
-                v::noWhitespace()->setTemplate(trans("Username cannot contain spaces")),
-                v::length(4, 18)->setTemplate(trans("Username must be between 4 and 18 characters long")),
+            'username' => v::when(
+                v::email(), // 如果是邮箱
+                v::alwaysValid(), // 如果是邮箱就跳过，代表它已经满足邮箱格式了
+                v::allOf( // 否则验证普通用户名规则
+                    v::alnum()->setTemplate(trans("Usernames can only contain letters and numbers")),
+                    v::noWhitespace()->setTemplate(trans("Username cannot contain spaces")),
+                    v::length(4, 18)->setTemplate(trans("Username must be between 4 and 18 characters long")),
+                ),
             ),
 
             'email' => v::email()->setTemplate(trans("Please enter a valid email address")),
+
 
             'password' => v::allOf(
                 v::stringType()->setTemplate(trans("Password must be a string")),

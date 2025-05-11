@@ -10,16 +10,12 @@ Route::disableDefaultRoute();
 Route::get('/', [App\Controllers\Index::class, 'index'])->name('index'); // 网站首页
 Route::get('/install', [App\Controllers\Install\Index::class, 'index'])->name('install.index'); // 安装器
 
-// 授权认证相关
-Route::group('/authorize', function () {
-    Route::add(['GET', 'POST'], '/login', [App\Controllers\Authorize\Index::class, 'login'])->name('authorize.login'); // 登入
-    Route::add(['GET', 'POST'], '/forget', [App\Controllers\Authorize\Index::class, 'forget'])->name('authorize.forget'); // 找回密码
-    Route::get('/logout', [App\Controllers\Authorize\Index::class, 'logout'])->name('authorize.logout'); // 登出
-})->middleware([App\Middleware\Authorize::class]);
-
 // 会员相关
 Route::group('/user', function () {
     Route::add(['GET', 'POST'], '/register', [App\Controllers\User\Register::class, 'register'])->name('user.register'); // 注册
+    Route::add(['GET', 'POST'], '/login', [App\Controllers\User\Authorize::class, 'login'])->name('user.login'); // 用户登录
+    Route::add(['GET', 'POST'], '/forget', [App\Controllers\User\Authorize::class, 'forget'])->name('user.forget'); // 找回密码
+    Route::add(['GET', 'POST'], '/logout', [App\Controllers\User\Authorize::class, 'logout'])->name('user.logout'); // 退出登录
 })->middleware([App\Middleware\Authorize::class]);
 
 // 管理员相关

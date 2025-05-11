@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controllers\Authorize;
+namespace App\Controllers\User;
 
 use Exception;
 use support\Request;
 use support\Response;
 
-class Index extends Common
+class Authorize extends Common
 {
     /**
      * 登录
@@ -20,7 +20,7 @@ class Index extends Common
     public function login(Request $request): Response
     {
         if ($request->isAjax()) {
-            $this->authorizeRule->validate();
+            $this->userRule->validate();
         }
 
         return view('authorize/login');
@@ -45,5 +45,4 @@ class Index extends Common
     {
         return '退出';
     }
-
 }
