@@ -98,14 +98,34 @@ if (!function_exists('getPreferredLanguage')) {
 // Result
 if (!function_exists('result')) {
     /**
-     * @param int    $code
-     * @param string $msg
-     * @param array  $data
+     * @param int          $code
+     * @param string|array $msg
+     * @param array        $var
      *
      * @return Response
      */
-    function result(int $code, string $msg = 'ok', array $data = []): Response
+    function result(int $code, string|array $msg = '', array $var = []): Response
     {
+        $message = config('code', false);
+        $error = $message[$code] ?? $message[10001];
+        if (is_array($msg) || is_object($msg)) {
+            $var = $msg;
+            $data['message'] = $error;
+        } else {
+            $data['message'] = $msg ?: $error;
+        }
+
+        if (isset($var['url'])) {
+            $data['url'] = $var['url'];
+        }
+
+        //控制返回的参数后台是否执行iframe父层
+        if (isset($var['is_parent'])) {
+            $data['is_parent'] = $var['is_parent'];
+        }
+        $data['code'] = $code;
+        $data['data'] = $var;
+
         return json(['code' => $code, 'data' => $data, 'msg' => $msg]);
     }
 }

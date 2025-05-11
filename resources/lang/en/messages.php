@@ -12,6 +12,12 @@ return [
     "Field validation failed"                                                                                                                            => "Field validation failed",
     "The system has been installed. To reinstall, delete the resources/install.lock file."                                                               => "The system has been installed. To reinstall, delete the resources/install.lock file.",
     "User creation failed"                                                                                                                               => "User creation failed",
+    "Success"                                                                                                                                            => "Success",
+    "Redirect"                                                                                                                                           => "Redirect",
+    "Unauthorized"                                                                                                                                       => "Unauthorized",
+    "Forbidden"                                                                                                                                          => "Forbidden",
+    "Not Found"                                                                                                                                          => "Not Found",
+    "Unknown error"                                                                                                                                      => "Unknown error",
 
     "Sign in"                                                                                                       => "Sign in",
     "Sign up"                                                                                                       => "Sign up",

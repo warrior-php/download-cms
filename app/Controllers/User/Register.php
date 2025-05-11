@@ -39,7 +39,7 @@ class Register extends Common
                 Redis::set('sms:' . $data['email'], $code, $expire);
             }
 
-            return result(200, '获取验证码成功');
+            return result(302, ['url' => url('common.emailVerify')]);
         }
 
         return view('user/register');

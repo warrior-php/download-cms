@@ -45,4 +45,9 @@ class Common
 
         return json(['ok' => '用户名可以注册']);
     }
+
+    public function emailVerify()
+    {
+        dump(111);
+    }
 }

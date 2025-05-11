@@ -12,6 +12,12 @@ return [
     "Field validation failed"                                                                                                                            => "字段验证失败",
     "The system has been installed. To reinstall, delete the resources/install.lock file."                                                               => "系统已安装完毕，如需重新安装，请删除 resources/install.lock 文件。",
     "User creation failed"                                                                                                                               => "用户创建失败",
+    "Success"                                                                                                                                            => "成功",
+    "Redirect"                                                                                                                                           => "重定向",
+    "Unauthorized"                                                                                                                                       => "未授权",
+    "Forbidden"                                                                                                                                          => "拒绝访问",
+    "Not Found"                                                                                                                                          => "页面不存在",
+    "Unknown error"                                                                                                                                      => "未知错误",
 
     "Sign in"                                                                                                       => "登录",
     "Sign up"                                                                                                       => "注册",
