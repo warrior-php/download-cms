@@ -99,7 +99,7 @@
             msgWrapper: 'span',
             msgArrow: '',
             msgIcon: '',
-            msgClass: 'n-right',
+            msgClass: '',
             msgStyle: '',
             msgShow: null,
             msgHide: null

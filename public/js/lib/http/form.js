@@ -7,13 +7,8 @@
      */
     $.fn.isForm = function (options = {}, callback = null) {
         let param = {
-            type: 'POST',
-            timeout: 10000,
-            datatype: "JSON",
-            ignore: ':hidden',
-            headers: {
-                "X-SOFT-NAME": "HOYM++ SaaS Framework",
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            type: 'POST', timeout: 10000, datatype: "JSON", ignore: ':hidden', headers: {
+                "X-SOFT-NAME": "HOYM++ SaaS Framework", 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         };
 
@@ -32,20 +27,10 @@
 
                     if (param.type.toUpperCase() === 'POST') {
                         $(form).ajaxSubmit({
-                            type: param.type,
-                            dataType: param.datatype,
-                            headers: param.headers,
-                            timeout: param.timeout,
-                            async: true,
-                            success: (rel) => {
+                            type: param.type, dataType: param.datatype, headers: param.headers, timeout: param.timeout, async: true, success: (rel) => {
                                 switch (rel.code) {
                                     case 200: // 提示并跳转或静默
                                         parent.layer.toast(rel.message, {'skin': 'success'});
-                                        if (rel.hasOwnProperty('is_parent') && rel.is_parent === true) {
-                                            true === rel.hasOwnProperty('url') && parent.window.location.replace(rel.url);
-                                        } else {
-                                            true === rel.hasOwnProperty('url') && window.location.replace(rel.url);
-                                        }
                                         break;
                                     case 204: // 静默待处理
                                         break;
@@ -62,8 +47,7 @@
                                 }
                                 "function" == typeof options ? options(rel) : "function" == typeof callback && callback(rel);
                                 this.holdSubmit(false);
-                            },
-                            error: (rel) => {
+                            }, error: (rel) => {
                                 this.holdSubmit(false);
                             }
                         })

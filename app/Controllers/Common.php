@@ -5,7 +5,6 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use support\Request;
-use Warrior\RateLimiter\Annotation\RateLimiter;
 use support\Response;
 
 class Common
@@ -17,7 +16,6 @@ class Common
      *
      * @return Response
      */
-    #[RateLimiter(limit: 3, ttl: 1)]
     public function hasEmail(Request $request): Response
     {
         $data = $request->post();
@@ -25,7 +23,7 @@ class Common
             return json(['error' => trans("This email address has been registered")]);
         }
 
-        return json(['ok' => '邮箱可以注册']);
+        return json(['ok' => trans("Email can be registered")]);
     }
 
     /**
@@ -35,7 +33,6 @@ class Common
      *
      * @return Response
      */
-    #[RateLimiter(limit: 3, ttl: 1)]
     public function hasUsername(Request $request): Response
     {
         $data = $request->post();
@@ -43,10 +40,10 @@ class Common
             return json(['error' => trans("This username is already taken")]);
         }
 
-        return json(['ok' => '用户名可以注册']);
+        return json(['ok' => trans("Username can be registered")]);
     }
 
-    public function emailVerify()
+    public function emailVerify(): void
     {
         dump(111);
     }

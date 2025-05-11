@@ -126,7 +126,7 @@ if (!function_exists('result')) {
         $data['code'] = $code;
         $data['data'] = $var;
 
-        return json(['code' => $code, 'data' => $data, 'msg' => $msg]);
+        return new Response(200, ['Content-Type' => 'application/json'], json_encode($data, JSON_UNESCAPED_UNICODE));
     }
 }
 

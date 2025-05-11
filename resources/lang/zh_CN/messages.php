@@ -67,4 +67,6 @@ return [
     "Email verification code template"                         => "您的验证码是：%code%。请在%expire%分钟内完成注册。如果您未请求此验证码，请忽略此电子邮件。",
     "Welcome! Please verify your email"                        => "欢迎加入！请验证您的邮箱",
     "Each mailbox can send up to 5 verification codes per day" => "每个邮箱每天最多可发送5个验证码",
+    "Email can be registered"                                  => "邮箱可以注册",
+    "Username can be registered"                               => "用户名可以注册",
 ];

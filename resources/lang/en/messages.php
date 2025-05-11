@@ -67,4 +67,6 @@ return [
     "Email verification code template"                         => "Your verification code is %code%. Please complete registration within %expire% minutes. If you didn’t request this, please ignore the email.",
     "Welcome! Please verify your email"                        => "Welcome! Please verify your email",
     "Each mailbox can send up to 5 verification codes per day" => "Each mailbox can send up to 5 verification codes per day",
+    "Email can be registered"                                  => "Email can be registered",
+    "Username can be registered"                               => "Username can be registered",
 ];
