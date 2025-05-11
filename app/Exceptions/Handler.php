@@ -42,6 +42,6 @@ class Handler extends \support\exception\Handler
                 'trace'         => $exception->getTrace(),
                 'traceAsString' => $exception->getTraceAsString(),
             ]
-        ])->withStatus($code);
+        ], 'public')->withStatus($code);
     }
 }
