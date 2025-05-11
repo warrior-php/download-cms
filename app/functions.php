@@ -75,6 +75,10 @@ if (!function_exists('getPreferredLanguage')) {
         $language = key($languages) ?: 'en'; // 默认英语
 
         // 将最终确定的语言设置存入session，避免重复检测
+        if ($language === 'zh') {
+            $language = 'zh-CN';
+        }
+
         session()->set('lang', $language);
 
         // 获取系统配置的备用语言列表
