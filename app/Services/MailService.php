@@ -5,6 +5,7 @@ namespace App\Services;
 
 use Exception;
 use PHPMailer\PHPMailer\PHPMailer;
+use Warrior\RateLimiter\Limiter;
 
 class MailService
 {
@@ -48,6 +49,7 @@ class MailService
      */
     public function send(array|string $to, string $subject, string $body, array $attachments = [], array $cc = [], array $bcc = [], ?array $replyTo = null): array
     {
+        Limiter::check($to, 5, 24 * 60 * 60, trans("Each mailbox can send up to 5 verification codes per day"));
         try {
             // 设置收件人
             if (is_array($to)) {

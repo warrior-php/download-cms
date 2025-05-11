@@ -7,7 +7,6 @@ use support\Redis;
 use Exception;
 use support\Request;
 use support\Response;
-use Warrior\RateLimiter\Annotation\RateLimiter;
 
 class Register extends Common
 {
@@ -19,7 +18,6 @@ class Register extends Common
      * @return Response
      * @throws Exception
      */
-    #[RateLimiter(limit: 1, ttl: 60, key: RateLimiter::SID, message: "The operation is too frequent, please scan and try again")]
     public function register(Request $request): Response
     {
         if ($request->isAjax()) {
