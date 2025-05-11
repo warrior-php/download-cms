@@ -58,5 +58,6 @@ return [
     "Password must be between 6 and 32 characters long" => "Password must be between 6 and 32 characters long",
     "This email address has been registered"            => "This email address has been registered",
     "This username is already taken"                    => "This username is already taken",
+    "Email verification code template"                  => "Your verification code is %code%. Please complete registration within %expire% minutes. If you didn’t request this, please ignore the email.",
     "Welcome! Please verify your email"                 => "Welcome! Please verify your email",
 ];

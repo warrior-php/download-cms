@@ -58,5 +58,6 @@ return [
     "Password must be between 6 and 32 characters long" => "密码长度必须在6到32个字符之间",
     "This email address has been registered"            => "该邮箱已被注册",
     "This username is already taken"                    => "该用户名已被占用",
+    "Email verification code template"                  => "您的验证码是：%code%。请在%expire%分钟内完成注册。如果您未请求此验证码，请忽略此电子邮件。",
     "Welcome! Please verify your email"                 => "欢迎加入！请验证您的邮箱",
 ];
