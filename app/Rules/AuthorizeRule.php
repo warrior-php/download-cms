@@ -21,7 +21,7 @@ class AuthorizeRule extends Rule
         return [
             'username' => v::when(
                 v::email(), // 如果是邮箱
-                v::email()->setTemplate(trans("Please enter a valid email address")), // 则验证邮箱规则
+                v::email()->setTemplate(trans("Please enter a valid email address")),
                 v::allOf( // 否则验证普通用户名规则
                     v::alnum()->setTemplate(trans("Usernames can only contain letters and numbers")),
                     v::noWhitespace()->setTemplate(trans("Username cannot contain spaces")),
@@ -31,7 +31,7 @@ class AuthorizeRule extends Rule
 
             'password' => v::allOf(
                 v::stringType()->setTemplate(trans("Password must be a string")),
-                v::length(6)->setTemplate(trans("Password must not be less than 6 characters"))
+                v::length(6, 32)->setTemplate(trans("Password must be between 6 and 32 characters long"))
             ),
         ];
     }

@@ -54,7 +54,7 @@ return [
     "Please enter a valid email address"                => "请输入正确的邮箱地址",
     "Usernames can only contain letters and numbers"    => "用户名只能是字母和数字",
     "Username cannot contain spaces"                    => "用户名不能包含空格",
-    "Username must be between 4 and 20 characters long" => "用户名长度必须在4到20个字符之间",
+    "Username must be between 4 and 18 characters long" => "用户名长度必须在4到18个字符之间",
     "Password must be a string"                         => "密码必须为字符串",
-    "Password must be between 6 and 32 characters long" => "密码长度必须在4到20个字符之间",
+    "Password must be between 6 and 32 characters long" => "密码长度必须在6到32个字符之间",
 ];

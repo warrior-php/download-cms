@@ -53,7 +53,7 @@ return [
     "Please enter a valid email address"                => "Please enter a valid email address",
     "Usernames can only contain letters and numbers"    => "Usernames can only contain letters and numbers",
     "Username cannot contain spaces"                    => "Username cannot contain spaces",
-    "Username must be between 4 and 20 characters long" => "Username must be between 4 and 20 characters long",
+    "Username must be between 4 and 18 characters long" => "Username must be between 4 and 18 characters long",
     "Password must be a string"                         => "Password must be a string",
     "Password must be between 6 and 32 characters long" => "Password must be between 6 and 32 characters long",
 ];
