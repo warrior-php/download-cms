@@ -18,9 +18,8 @@ class Register extends Common
     public function register(Request $request): Response
     {
         if ($request->isAjax()) {
-            $data = request()->post();
             $this->userRule->validate();
-            $this->userService->register($data);
+            $this->userService->register();
         }
 
         return view('user/register');

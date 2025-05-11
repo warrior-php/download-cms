@@ -15,7 +15,7 @@ class Model extends \support\Model
      *
      * @throws BusinessException
      */
-    protected static function validateRequiredFields(array $data, array $requiredFields): void
+    public static function validateRequiredFields(array $data, array $requiredFields): void
     {
         foreach ($requiredFields as $field) {
             if (!isset($data[$field]) || trim((string)$data[$field]) === '') {

@@ -124,13 +124,6 @@ class UserModel extends Model
      */
     public static function createUser(array $data): UserModel
     {
-        self::validateRequiredFields($data, ['username', 'email', 'password']);
-
-        self::checkUserUniqueness([
-            'email'    => $data['email'],
-            'username' => $data['username']
-        ]);
-
         try {
             $user = self::create($data);
             if (!$user->save()) {
