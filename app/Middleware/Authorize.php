@@ -39,7 +39,7 @@ class Authorize implements MiddlewareInterface
         // 访问的方法需要登录
         if (!in_array($request->action, $noNeedLogin)) {
             // 拦截请求，返回一个重定向响应，请求停止向洋葱芯穿越
-            return redirect(url('authorize.login'));
+            return redirect(url('user.login'));
         }
 
         // 不需要登录，请求继续向洋葱芯穿越
