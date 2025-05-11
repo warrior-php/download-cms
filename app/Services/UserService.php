@@ -17,9 +17,10 @@ class UserService
     public function register(?array $data = null): void
     {
         $data = $data ?? request()->post();
-        UserModel::validateRequiredFields($data, ['username', 'email', 'password']);
-        UserModel::checkUserUniqueness(['email' => $data['email'], 'username' => $data['username']]);
-        // 发送邮件
+        UserModel::checkUserUniqueness([
+            'email'    => $data['email'],
+            'username' => $data['username']
+        ]);
 
         UserModel::createUser($data);
     }
