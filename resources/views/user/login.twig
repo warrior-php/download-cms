@@ -4,45 +4,47 @@
 {% block container %}
     <div class="p-5 min-vh-100">
         <div class="row justify-content-center">
-            <div class="login-box ">
-                <div class="text-center mx-auto auth-logo mb-3" style="width: 68px">
-                    <a href="{{ url('index') }}" class="logo-dark">
-                        <img class="rounded-circle" src="{{ __PUBLIC__('images/logo-dark.png') }}" alt="{{ trans("Site title") }} }}" height="68" width="68">
-                    </a>
-                    <a href="{{ url('index') }}" class="logo-light">
-                        <img class="rounded-circle" src="{{ __PUBLIC__('images/logo-light.png') }}" alt="{{ trans("Site title") }} }}" height="68" width="68">
-                    </a>
-                </div>
-                <div class="auth-form-header p-0 text-center mb-4">
-                    <h3 class="fw-light">{{ trans("Sign in to Hoym") }}</h3>
-                </div>
-                <div class="card">
-                    <div class="card-body p-4">
-                        <form id="form" action="{{ url('user.login') }}">
-                            <div class="form-group mb-3">
-                                <label class="form-label" for="username">{{ trans("Username or email address") }}</label>
-                                <input class="form-control" name="username" type="text" id="username" data-rule="required" autocomplete="off">
-                            </div>
-                            <div class="form-group mb-4">
-                                <a href="{{ url('user.forget') }}" class="float-end" tabindex="-1">{{ trans("Forgot password?") }}</a>
-                                <label class="form-label" for="password">{{ trans("Password") }}</label>
-                                <input class="form-control" name="password" type="password" data-rule="required" id="password">
-                            </div>
-                            <div class="form-group mb-0 text-center">
-                                <button class="btn btn-primary waves-effect waves-light w-100" type="submit">{{ trans("Sign in") }}</button>
-                            </div>
-                        </form>
+            {% block main %}
+                <div class="login-box">
+                    <div class="text-center mx-auto auth-logo mb-3" style="width: 58px">
+                        <a href="{{ url('index') }}" class="logo-dark">
+                            <img class="rounded-circle" src="{{ __PUBLIC__('images/logo-dark.png') }}" alt="{{ trans("Site title") }} }}" height="58" width="58">
+                        </a>
+                        <a href="{{ url('index') }}" class="logo-light">
+                            <img class="rounded-circle" src="{{ __PUBLIC__('images/logo-light.png') }}" alt="{{ trans("Site title") }} }}" height="58" width="58">
+                        </a>
                     </div>
-                </div>
-                <div class="card" style="background-color: var(--bs-body-bg);">
-                    <div class="card-body text-center">
+                    <div class="auth-form-header p-0 text-center mb-4">
+                        <h3 class="fw-light">{{ trans("Sign in to Hoym") }}</h3>
+                    </div>
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <form id="form" action="{{ url('user.login') }}">
+                                <div class="form-group my-3">
+                                    <label class="form-label" for="username">{{ trans("Username or email address") }}</label>
+                                    <input class="form-control" name="username" type="text" id="username" data-rule="required" autocomplete="off">
+                                </div>
+                                <div class="form-group mb-4">
+                                    <a href="{{ url('user.forget') }}" class="float-end" tabindex="-1">{{ trans("Forgot password?") }}</a>
+                                    <label class="form-label" for="password">{{ trans("Password") }}</label>
+                                    <input class="form-control" name="password" type="password" data-rule="required" id="password">
+                                </div>
+                                <div class="form-group text-center mb-4">
+                                    <button class="btn btn-primary waves-effect waves-light w-100" type="submit">{{ trans("Sign in") }}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="text-center">
                         <p class="m-2">{{ trans("Don't have an account?") }}<a href="{{ url('user.register') }}" tabindex="-1">{{ trans("Sign up") }}</a></p>
                     </div>
                 </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-12 text-center"></div>
-            </div>
+            {% endblock %}
+            {% block footer %}
+                <div class="row mt-3">
+                    <div class="col-12 text-center"></div>
+                </div>
+            {% endblock %}
         </div>
     </div>
 {% endblock %}
