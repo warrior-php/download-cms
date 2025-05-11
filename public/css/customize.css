@@ -26,8 +26,8 @@ html[data-layout=horizontal] .main-menu {
 }
 
 .login-box {
-    width: 21rem;
-    min-width: 21rem;
+    width: 20rem;
+    min-width: 20rem;
 }
 
 .error-box {
