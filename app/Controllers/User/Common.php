@@ -3,8 +3,27 @@ declare(strict_types=1);
 
 namespace App\Controllers\User;
 
+use App\Rules\UserRule;
+use App\Services\UserService;
+
 class Common
 {
+    /**
+     * 注入验证依赖
+     *
+     * @Inject
+     * @var UserService
+     */
+    protected UserService $userService;
+
+    /**
+     * 注入验证依赖
+     *
+     * @Inject
+     * @var UserRule
+     */
+    protected UserRule $userRule;
+
     /**
      * 无需登录的操作列表
      *

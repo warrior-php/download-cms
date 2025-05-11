@@ -3,20 +3,11 @@ declare(strict_types=1);
 
 namespace App\Controllers\User;
 
-use App\Services\UserService;
 use support\Request;
 use support\Response;
 
 class Register extends Common
 {
-    /**
-     * 注入验证依赖
-     *
-     * @Inject
-     * @var UserService
-     */
-    protected UserService $userService;
-
     /**
      * 用户注册
      *
@@ -27,7 +18,9 @@ class Register extends Common
     public function register(Request $request): Response
     {
         if ($request->isAjax()) {
-            $this->userService->register();
+            $data = request()->post();
+            $this->userRule->validate();
+            $this->userService->register($data);
         }
 
         return view('user/register');
