@@ -20,7 +20,7 @@ class Index extends Common
     public function login(Request $request): Response
     {
         if ($request->isAjax()) {
-            $this->authorizeValidation->validate();
+            $this->authorizeRule->validate();
         }
 
         return view('authorize/login');
