@@ -7,7 +7,7 @@ use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator;
 use support\exception\BusinessException;
 
-abstract class Validate
+abstract class Rule
 {
     /**
      * 返回字段对应的验证规则

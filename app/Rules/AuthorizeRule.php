@@ -6,10 +6,10 @@ namespace App\Rules;
 use Respect\Validation\Validator as v;
 
 /**
- * Class AuthorizeValidate
+ * Class AuthorizeRule
  * 登录/授权相关的验证规则
  */
-class AuthorizeValidate extends Validate
+class AuthorizeRule extends Rule
 {
     /**
      * 定义字段验证规则
