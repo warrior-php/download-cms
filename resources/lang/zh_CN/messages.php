@@ -15,8 +15,7 @@ return [
 
     "Sign in"                                                                                                       => "登录",
     "Sign up"                                                                                                       => "注册",
-    "Sign in to Hoym"                                                                                               => "用户登录",
-    "Sign up to Hoym"                                                                                               => "用户注册",
+    "Let’s get organized!"                                                                                          => "欢迎加入我们",
     "Username or email address"                                                                                     => "用户名或邮箱",
     "Email"                                                                                                         => "电子邮箱",
     "Password"                                                                                                      => "密码",

@@ -19,18 +19,18 @@ html[data-layout=horizontal] .main-menu {
 }
 
 .register-box {
-    width: 25rem;
-    min-width: 25rem;
+    width: 24rem;
+    min-width: 24rem;
     margin: 0 auto;
     padding: 0 .75rem;
 }
 
 .login-box {
-    width: 22rem;
-    min-width: 22rem;
+    width: 21rem;
+    min-width: 21rem;
 }
 
 .error-box {
-    width: 25rem;
-    min-width: 25rem;
+    width: 24rem;
+    min-width: 24rem;
 }

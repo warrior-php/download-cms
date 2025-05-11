@@ -15,8 +15,7 @@ return [
 
     "Sign in"                                                                                                       => "Sign in",
     "Sign up"                                                                                                       => "Sign up",
-    "Sign in to Hoym"                                                                                               => "Sign in to Hoym",
-    "Sign up to Hoym"                                                                                               => "Sign up to Hoym",
+    "Let’s get organized!"                                                                                          => "Let’s get organized!",
     "Username or email address"                                                                                     => "Username or email address",
     "Email"                                                                                                         => "Email",
     "Password"                                                                                                      => "Password",
