@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Models\UserModel;
-use App\Rules\UserValidate;
+use App\Rules\UserRule;
 
 class UserService
 {
@@ -12,9 +12,9 @@ class UserService
      * 注入验证依赖
      *
      * @Inject
-     * @var UserValidate
+     * @var UserRule
      */
-    protected UserValidate $userValidation;
+    protected UserRule $userRule;
 
     /**
      * 用户注册
@@ -24,7 +24,7 @@ class UserService
     public function register(): void
     {
         $data = request()->post();
-        $this->userValidation->validate($data);
+        $this->userRule->validate($data);
         UserModel::createUser($data);
     }
 }
