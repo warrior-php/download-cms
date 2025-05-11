@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controllers\User;
 
-use Exception;
 use support\Redis;
+use Exception;
 use support\Request;
 use support\Response;
 
