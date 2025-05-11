@@ -23,12 +23,12 @@ class Index
     #[RateLimiter(limit: 3, ttl: 1)]
     public function index(): Response
     {
-        $result = $this->mailService->send(
-            ['weplus.cc@gmail.com' => '张三'],
-            '测试发送新邮件',
-            '<b>你好，这是正文内容</b>'
-        );
-        dump($result);
+//        $result = $this->mailService->send(
+//            ['weplus.cc@gmail.com' => '张三'],
+//            '测试发送新邮件',
+//            '<b>你好，这是正文内容</b>'
+//        );
+//        dump($result);
         return view('index');
     }
 }
