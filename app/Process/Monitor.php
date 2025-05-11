@@ -223,7 +223,9 @@ class Monitor
     /**
      * Get memory limit
      *
-     * @return float
+     * @param $memoryLimit
+     *
+     * @return float|int
      */
     protected function getMemoryLimit($memoryLimit): float|int
     {
