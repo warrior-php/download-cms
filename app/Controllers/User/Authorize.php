@@ -23,8 +23,6 @@ class Authorize extends Common
             $this->userRule->validate();
         }
 
-        dump(111);
-
         return view('user/login');
     }
 
