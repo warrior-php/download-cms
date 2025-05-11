@@ -105,11 +105,11 @@ class UserModel extends Model
         }
 
         if (self::where('email', $data['email'])->exists()) {
-            throw new BusinessException('该邮箱已被注册');
+            throw new BusinessException(trans("This email address has been registered"));
         }
 
         if (self::where('username', $data['username'])->exists()) {
-            throw new BusinessException('该用户名已被占用');
+            throw new BusinessException(trans("This username is already taken"));
         }
     }
 
@@ -140,12 +140,12 @@ class UserModel extends Model
             return $user;
         } catch (Throwable $e) {
             // 记录错误日志
-            Log::error('用户创建失败', [
+            Log::error(trans("User creation failed"), [
                 'error' => $e->getMessage(),
                 'trace' => $e->getTraceAsString()
             ]);
 
-            throw new BusinessException('用户创建失败');
+            throw new BusinessException(trans("User creation failed"));
         }
     }
 }

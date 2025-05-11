@@ -11,7 +11,7 @@ return [
     "It's looking like you may have taken a wrong turn. Don't worry... it happens to the best of us. You might want to check your internet connection. " => "It's looking like you may have taken a wrong turn. Don't worry... it happens to the best of us. You might want to check your internet connection. ",
     "Field validation failed"                                                                                                                            => "字段验证失败",
     "The system has been installed. To reinstall, delete the resources/install.lock file."                                                               => "系统已安装完毕，如需重新安装，请删除 resources/install.lock 文件。",
-
+    "User creation failed"                                                                                                                               => "用户创建失败",
 
     "Sign in"                                                                                                       => "登录",
     "Sign up"                                                                                                       => "注册",
@@ -57,4 +57,6 @@ return [
     "Username must be between 4 and 18 characters long" => "用户名长度必须在4到18个字符之间",
     "Password must be a string"                         => "密码必须为字符串",
     "Password must be between 6 and 32 characters long" => "密码长度必须在6到32个字符之间",
+    "This email address has been registered"            => "该邮箱已被注册",
+    "This username is already taken"                    => "该用户名已被占用",
 ];

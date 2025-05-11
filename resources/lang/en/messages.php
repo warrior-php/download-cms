@@ -11,6 +11,7 @@ return [
     "It's looking like you may have taken a wrong turn. Don't worry... it happens to the best of us. You might want to check your internet connection. " => "It's looking like you may have taken a wrong turn. Don't worry... it happens to the best of us. You might want to check your internet connection. ",
     "Field validation failed"                                                                                                                            => "Field validation failed",
     "The system has been installed. To reinstall, delete the resources/install.lock file."                                                               => "The system has been installed. To reinstall, delete the resources/install.lock file.",
+    "User creation failed"                                                                                                                               => "User creation failed",
 
     "Sign in"                                                                                                       => "Sign in",
     "Sign up"                                                                                                       => "Sign up",
@@ -56,4 +57,6 @@ return [
     "Username must be between 4 and 18 characters long" => "Username must be between 4 and 18 characters long",
     "Password must be a string"                         => "Password must be a string",
     "Password must be between 6 and 32 characters long" => "Password must be between 6 and 32 characters long",
+    "This email address has been registered"            => "This email address has been registered",
+    "This username is already taken"                    => "This username is already taken",
 ];
