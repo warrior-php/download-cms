@@ -13,7 +13,7 @@ Route::get('/install', [App\Controllers\Install\Index::class, 'index'])->name('i
 Route::group('/common', function () {
     Route::post('/hasEmail', [App\Controllers\Common::class, 'hasEmail'])->name('common.hasEmail'); // 检查email是否存在
     Route::post('/hasUsername', [App\Controllers\Common::class, 'hasUsername'])->name('common.hasUsername'); // 检查username是否存在
-    Route::post('/emailVerify', [App\Controllers\Common::class, 'emailVerify'])->name('common.emailVerify'); // 验证邮箱
+    Route::get('/emailVerify', [App\Controllers\Common::class, 'emailVerify'])->name('common.emailVerify'); // 验证邮箱
 });
 
 // 会员相关
