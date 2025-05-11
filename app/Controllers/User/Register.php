@@ -32,6 +32,7 @@ class Register extends Common
                 '%code%'   => $code,
                 '%expire%' => $expire / 60
             ]);
+
             if ($this->mailService->send($data['email'], trans("Welcome! Please verify your email"), $body)) {
                 Redis::set('sms:' . $data['email'], $code, $expire);
             }
