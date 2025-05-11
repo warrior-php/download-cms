@@ -58,4 +58,5 @@ return [
     "Password must be between 6 and 32 characters long" => "Password must be between 6 and 32 characters long",
     "This email address has been registered"            => "This email address has been registered",
     "This username is already taken"                    => "This username is already taken",
+    "Welcome! Please verify your email"                 => "Welcome! Please verify your email",
 ];

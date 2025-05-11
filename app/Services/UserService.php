@@ -16,12 +16,6 @@ class UserService
      */
     public function register(?array $data = null): void
     {
-        $data = $data ?? request()->post();
-        UserModel::checkUserUniqueness([
-            'email'    => $data['email'],
-            'username' => $data['username']
-        ]);
-
         UserModel::createUser($data);
     }
 }

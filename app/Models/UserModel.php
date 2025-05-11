@@ -29,7 +29,6 @@ use Throwable;
  * @property string  $updated_at                 更新时间
  * @property int     $role                       角色
  * @property integer $status                     状态 0正常 1禁用
- * @property integer $activate                   是否激活
  */
 class UserModel extends Model
 {
@@ -92,25 +91,35 @@ class UserModel extends Model
     }
 
     /**
-     * 检查用户唯一字段是否已存在
+     * Email 是否存在
      *
-     * @param array $data ['email' => '...', 'username' => '...']
+     * @param string $email
      *
-     * @throws BusinessException
+     * @return bool
      */
-    public static function checkUserUniqueness(array $data): void
+    public static function hasEmail(string $email): bool
     {
-        if (empty($data)) {
-            return;
+        if (self::where('email', $email)->exists()) {
+            return true;
         }
 
-        if (self::where('email', $data['email'])->exists()) {
-            throw new BusinessException(trans("This email address has been registered"));
+        return false;
+    }
+
+    /**
+     * Username 是否存在
+     *
+     * @param string $email
+     *
+     * @return bool
+     */
+    public static function hasUsername(string $email): bool
+    {
+        if (self::where('username', $email)->exists()) {
+            return true;
         }
 
-        if (self::where('username', $data['username'])->exists()) {
-            throw new BusinessException(trans("This username is already taken"));
-        }
+        return false;
     }
 
     /**

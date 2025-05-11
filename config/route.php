@@ -10,6 +10,11 @@ Route::disableDefaultRoute();
 Route::get('/', [App\Controllers\Index::class, 'index'])->name('index'); // 网站首页
 Route::get('/install', [App\Controllers\Install\Index::class, 'index'])->name('install.index'); // 安装器
 
+Route::group('/common', function () {
+    Route::post('/hasEmail', [App\Controllers\Common::class, 'hasEmail'])->name('common.hasEmail'); //检查email是否存在
+    Route::post('/hasUsername', [App\Controllers\Common::class, 'hasUsername'])->name('common.hasUsername'); //检查username是否存在
+});
+
 // 会员相关
 Route::group('/user', function () {
     Route::add(['GET', 'POST'], '/register', [App\Controllers\User\Register::class, 'register'])->name('user.register'); // 注册
@@ -34,7 +39,11 @@ Route::fallback(function (Request $request, $status) {
         404 => [
             'title'   => "Page Not Found",
             'content' => "It's looking like you may have taken a wrong turn. Don't worry... it happens to the best of us. You might want to check your internet connection.",
-        ]
+        ],
+        405 => [
+            'title'   => "Method Not Allowed",
+            'content' => "The requested HTTP method is not allowed for this endpoint.",
+        ],
     ];
 
     $responseData = [

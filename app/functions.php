@@ -134,5 +134,23 @@ if (!function_exists('')) {
 
         return $token;
     }
+}
 
+// 生成指定长度的数字验证码（使用字符串拼接）
+if (!function_exists('generateCode')) {
+    /**
+     * 生成指定长度的数字验证码（使用字符串拼接）
+     *
+     * @param int $length 验证码长度，默认6位
+     *
+     * @return string 生成的验证码（如：074319）
+     */
+    function generateCode(int $length = 6): string
+    {
+        $code = '';
+        for ($i = 0; $i < $length; $i++) {
+            $code .= mt_rand(0, 9);
+        }
+        return $code;
+    }
 }

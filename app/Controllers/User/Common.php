@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controllers\User;
 
 use App\Rules\UserRule;
+use App\Services\MailService;
 use App\Services\UserService;
 
 class Common
@@ -15,6 +16,14 @@ class Common
      * @var UserService
      */
     protected UserService $userService;
+
+    /**
+     * 注入验证依赖
+     *
+     * @Inject
+     * @var MailService
+     */
+    protected MailService $mailService;
 
     /**
      * 注入验证依赖
@@ -36,7 +45,7 @@ class Common
      *
      * @var string[]
      */
-    protected array $noNeedLogin = ['register', 'login', 'forget'];
+    protected array $noNeedLogin = ['register', 'login', 'forget', 'checkUniqueness'];
 
     /**
      * 无需鉴权的操作列表

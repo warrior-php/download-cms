@@ -29,12 +29,17 @@
 
 .n-error {
     --bs-text-opacity: 1;
-    color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity));
+    color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity)) !important;
 }
 
 .n-invalid {
     --bs-text-opacity: 1;
     border-color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity)) !important;
+}
+
+.n-ok {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-success-rgb), var(--bs-text-opacity)) !important;
 }
 
 .n-valid {
