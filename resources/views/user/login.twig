@@ -1,4 +1,4 @@
-{% extends 'layout.Twig' %}
+{% extends './layout.Twig' %}
 {% block title %}{{ trans("Sign in to Hoym") }} · {{ trans("Site title") }}{% endblock %}
 
 {% block container %}
@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             {% block main %}
                 <div class="login-box">
-                    <div class="text-center mx-auto auth-logo mb-4" style="width: 68px">
+                    <div class="text-center mx-auto auth-logo" style="width: 68px;margin-bottom: 2.5rem">
                         <a href="{{ url('index') }}" class="logo-dark">
                             <img class="rounded-circle" src="{{ __PUBLIC__('images/logo-dark.png') }}" alt="{{ trans("Site title") }} }}" height="68" width="68">
                         </a>
