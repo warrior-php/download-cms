@@ -3,30 +3,11 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
-use App\Rules\UserRule;
-use App\Services\MailService;
-use support\Request;
-use support\Response;
+use App\Rules\Rule;
+use support\exception\BusinessException;
 
 class Common
 {
-    /**
-     * 注入验证依赖
-     *
-     * @Inject
-     * @var MailService
-     */
-    protected MailService $mailService;
-
-    /**
-     * 注入验证依赖
-     *
-     * @Inject
-     * @var UserRule
-     */
-    protected UserRule $userRule;
-
     /**
      * 无需登录的操作列表
      *
@@ -55,36 +36,35 @@ class Common
     protected array $noNeedAuth = ['logout'];
 
     /**
-     * 判断email是否已注册
+     * 通用验证方法
      *
-     * @param Request $request
+     * @param string $ruleClass 类名（可传简写：UserRule 或完整命名空间）
+     * @param array  $data      待验证的数据
+     * @param string $scene     场景名称（可选）
      *
-     * @return Response
+     * @return void
      */
-    public function hasEmail(Request $request): Response
+    protected function validateWith(string $ruleClass, array $data, string $scene = ''): void
     {
-        $data = $request->post();
-        if (UserModel::hasEmail($data['email'])) {
-            return json(['error' => trans("This email address has been registered")]);
+        // 拼接完整类名（如果没带命名空间）
+        if (!str_contains($ruleClass, '\\')) {
+            $ruleClass = 'App\\Rules\\' . $ruleClass;
         }
 
-        return json(['ok' => trans("Email can be registered")]);
-    }
-
-    /**
-     * 判断username是否已注册
-     *
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function hasUsername(Request $request): Response
-    {
-        $data = $request->post();
-        if (UserModel::hasUsername($data['username'])) {
-            return json(['error' => trans("This username is already taken")]);
+        // 检查类是否存在
+        if (!class_exists($ruleClass)) {
+            throw new BusinessException("Validator class not found: $ruleClass");
         }
 
-        return json(['ok' => trans("Username can be registered")]);
+        // 实例化验证器
+        $validator = new $ruleClass();
+
+        // 如果提供了场景，则设置
+        if ($scene && method_exists($validator, 'scene')) {
+            $validator->scene($scene);
+        }
+
+        /** @var Rule $validator */
+        $validator->validate($data);
     }
 }

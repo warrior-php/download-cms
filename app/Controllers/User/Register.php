@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controllers\User;
 
 use App\Controllers\Common;
+use App\Services\MailService;
 use support\Redis;
 use Exception;
 use support\Request;
@@ -11,6 +12,14 @@ use support\Response;
 
 class Register extends Common
 {
+    /**
+     * 注入验证依赖
+     *
+     * @Inject
+     * @var MailService
+     */
+    protected MailService $mailService;
+
     /**
      * 用户注册
      *
@@ -23,7 +32,7 @@ class Register extends Common
     {
         if ($request->isAjax()) {
             $data = request()->post();
-            $this->userRule->validate($data);
+            $this->validateWith('UserRule', $data, 'register');
             session()->set('register', $data);
 
             // 发送邮件验证码
@@ -33,6 +42,7 @@ class Register extends Common
                 '%code%'   => $code,
                 '%expire%' => $expire / 60
             ]);
+
             if ($this->mailService->send($data['email'], trans("Welcome! Please verify your email"), $body)) {
                 Redis::set('sms:' . $data['email'], $code, $expire);
             }

@@ -21,7 +21,8 @@ class Authorize extends Common
     public function login(Request $request): Response
     {
         if ($request->isAjax()) {
-            $this->userRule->validate();
+            $data = request()->post();
+            $this->validateWith('UserRule', $data, 'login');
         }
 
         return view('user/login');

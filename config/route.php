@@ -10,11 +10,6 @@ Route::disableDefaultRoute();
 Route::get('/', [App\Controllers\Index::class, 'index'])->name('index'); // 网站首页
 Route::get('/install', [App\Controllers\Install\Index::class, 'index'])->name('install.index'); // 安装器
 
-Route::group('/common', function () {
-    Route::post('/hasEmail', [App\Controllers\Common::class, 'hasEmail'])->name('common.hasEmail'); // 检查email是否存在
-    Route::post('/hasUsername', [App\Controllers\Common::class, 'hasUsername'])->name('common.hasUsername'); // 检查username是否存在
-});
-
 // 会员相关
 Route::group('/user', function () {
     Route::add(['GET', 'POST'], '/register', [App\Controllers\User\Register::class, 'register'])->name('user.register'); // 注册
@@ -22,6 +17,8 @@ Route::group('/user', function () {
     Route::add(['GET', 'POST'], '/forget', [App\Controllers\User\Authorize::class, 'forget'])->name('user.forget'); // 找回密码
     Route::add(['GET', 'POST'], '/logout', [App\Controllers\User\Authorize::class, 'logout'])->name('user.logout'); // 退出登录
     Route::add(['GET', 'POST'], '/emailVerify', [App\Controllers\User\Register::class, 'emailVerify'])->name('user.emailVerify'); // 验证邮箱
+    Route::post('/hasEmail', [App\Controllers\User\Index::class, 'hasEmail'])->name('user.hasEmail'); // 检查email是否存在
+    Route::post('/hasUsername', [App\Controllers\User\Index::class, 'hasUsername'])->name('user.hasUsername'); // 检查username是否存在
 })->middleware([App\Middleware\Authorize::class]);
 
 // 管理员相关
