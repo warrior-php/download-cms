@@ -6,9 +6,9 @@ namespace App\Middleware;
 use Exception;
 use ReflectionClass;
 use ReflectionException;
+use Webman\MiddlewareInterface;
 use Webman\Http\Request;
 use Webman\Http\Response;
-use Webman\MiddlewareInterface;
 
 class Authorize implements MiddlewareInterface
 {

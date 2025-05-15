@@ -43,10 +43,14 @@ class InitApp implements MiddlewareInterface
      */
     public function process(Request $request, callable $handler): Response
     {
-        $this->initLang();
+        // 设语言
+        $language = session('lang') ?: setupLocale();
+        locale(str_replace('-', '_', $language));
 
+        // 检查是否正常安装
         $isInstalled = file_exists(base_path(self::INSTALL_LOCK_FILE));
-        $isInstallController = $this->isInstallController();
+        $controller = request()->controller ?? '';
+        $isInstallController = str_contains($controller, '\\Install\\');
 
         // 未安装 & 非安装控制器 -> 重定向安装
         if (!$isInstalled && !$isInstallController) {
@@ -67,29 +71,5 @@ class InitApp implements MiddlewareInterface
         ]);
 
         return $handler($request);
-    }
-
-    /**
-     * 初始化语言环境
-     *
-     * @return void
-     * @throws Exception
-     */
-    protected function initLang(): void
-    {
-        $language = session('lang') ?: setupLocale();
-        locale(str_replace('-', '_', $language));
-    }
-
-    /**
-     * 判断是否为安装控制器
-     *
-     * @return bool
-     */
-    protected function isInstallController(): bool
-    {
-        $controller = request()->controller ?? '';
-
-        return str_contains($controller, '\\Install\\');
     }
 }

@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace App\Middleware;
 
+use Webman\MiddlewareInterface;
 use Webman\Http\Request;
 use Webman\Http\Response;
-use Webman\MiddlewareInterface;
 
 class StaticFile implements MiddlewareInterface
 {
