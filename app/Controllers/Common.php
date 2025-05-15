@@ -38,7 +38,7 @@ class Common
     /**
      * 通用验证方法
      *
-     * @param string $ruleClass 类名（可传简写：UserValidator 或完整命名空间）
+     * @param string $ruleClass 类名（可传简写：User 或完整命名空间）
      * @param array  $data      待验证的数据
      * @param string $scene     场景名称（可选）
      *

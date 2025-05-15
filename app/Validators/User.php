@@ -11,7 +11,7 @@ use Respect\Validation\Validator as v;
  * 用于校验用户注册、登录等场景中的字段，如用户名、邮箱、密码等。
  * 继承自抽象类 App\Validators\Validator，支持场景切换及字段级别验证。
  */
-class UserValidator extends Validator
+class User extends Validator
 {
     /**
      * 定义所有字段的通用验证规则
