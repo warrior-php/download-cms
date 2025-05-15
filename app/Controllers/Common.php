@@ -53,7 +53,7 @@ class Common
 
         // 检查类是否存在
         if (!class_exists($ruleClass)) {
-            throw new BusinessException("Validator class not found: $ruleClass");
+            throw new BusinessException("Class not found: $ruleClass");
         }
 
         // 实例化验证器
