@@ -20,7 +20,4 @@ Do.add('layer', {path: basePath + 'lib/layer/layer.extend.js', type: 'js', requi
 // 表单
 Do.add('validator', {path: basePath + 'lib/nice-validator/jquery.validator.js?local=' + lang, type: 'js'});
 Do.add('jquery.form', {path: basePath + 'lib/http/jquery.form.js', type: 'js'});
-Do.add('form', {path: basePath + 'lib/http/form.js', type: 'js', requires: ['layer', 'jquery.form', 'validator']});
-
-let jsOk = ' http://localhost:8787/js/lib/nice-validator/local/th.js'
-
+Do.add('form', {path: basePath + 'lib/http/form.js', type: 'js', requires: ['nprogress', 'layer', 'jquery.form', 'validator']});
