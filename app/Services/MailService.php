@@ -113,7 +113,7 @@ class MailService
 
         $this->mailer->Username = 'no-reply@hoym.net'; // 发件人 SMTP 用户名（完整邮箱地址）
         $this->mailer->Password = 'hoym2025ailA21sXs'; // SMTP 授权码（不是邮箱登录密码）
-        $this->mailer->setFrom('no-reply@hoym.net', '网站通知'); // 设置默认发件人地址和名称
+        $this->mailer->setFrom('no-reply@hoym.net', trans("Website notification")); // 设置默认发件人地址和名称
         $this->mailer->Sender = 'no-reply@hoym.net'; // 设置退信地址（阿里云要求必须设置）
     }
 }

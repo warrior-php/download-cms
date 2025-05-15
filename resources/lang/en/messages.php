@@ -69,4 +69,5 @@ return [
     "Each mailbox can send up to 5 verification codes per day" => "Each mailbox can send up to 5 verification codes per day",
     "Email can be registered"                                  => "Email can be registered",
     "Username can be registered"                               => "Username can be registered",
+    "Website notification"                                     => "Website notification",
 ];

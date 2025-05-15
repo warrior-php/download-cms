@@ -42,9 +42,4 @@ class Common
 
         return json(['ok' => trans("Username can be registered")]);
     }
-
-    public function emailVerify(): void
-    {
-        dump(111);
-    }
 }

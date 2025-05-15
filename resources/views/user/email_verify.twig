@@ -55,7 +55,7 @@
 
 {% block script %}
     <script type="text/javascript">
-        Do('form', () => {
+        Do('base', 'form', () => {
             NProgress.start();
             NProgress.done();
             $('#form').isForm();

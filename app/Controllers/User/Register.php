@@ -32,14 +32,23 @@ class Register extends Common
                 '%code%'   => $code,
                 '%expire%' => $expire / 60
             ]);
-
             if ($this->mailService->send($data['email'], trans("Welcome! Please verify your email"), $body)) {
                 Redis::set('sms:' . $data['email'], $code, $expire);
             }
 
-            return result(302, ['url' => url('common.emailVerify')]);
+            return result(302, ['url' => url('user.emailVerify')]);
         }
 
         return view('user/register');
+    }
+
+    /**
+     * 注册邮箱验证
+     *
+     * @return Response
+     */
+    public function emailVerify(): Response
+    {
+        return view('user/email_verify');
     }
 }

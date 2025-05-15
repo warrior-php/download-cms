@@ -69,4 +69,5 @@ return [
     "Each mailbox can send up to 5 verification codes per day" => "每个邮箱每天最多可发送5个验证码",
     "Email can be registered"                                  => "邮箱可以注册",
     "Username can be registered"                               => "用户名可以注册",
+    "Website notification"                                     => "网站通知",
 ];

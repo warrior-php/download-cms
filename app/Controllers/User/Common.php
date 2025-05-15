@@ -36,7 +36,7 @@ class Common
      *
      * @var string[]
      */
-    protected array $noNeedLogin = ['register', 'login', 'forget', 'checkUniqueness'];
+    protected array $noNeedLogin = ['register', 'login', 'forget', 'emailVerify'];
 
     /**
      * 无需鉴权的操作列表
