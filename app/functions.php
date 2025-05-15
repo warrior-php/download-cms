@@ -42,56 +42,20 @@ if (!function_exists('url')) {
 }
 
 // 解析 Accept-Language HTTP 请求头来获取用户浏览器或设备的首选语言
-if (!function_exists('getPreferredLanguage')) {
+if (!function_exists('setupLocale')) {
     /**
-     * 解析 Accept-Language HTTP 请求头来获取用户浏览器或设备的首选语言
+     * 初始化语言环境，并设置到 session 中
      *
-     * @return int|null|string
+     * @return string
      * @throws Exception
      */
-    function getPreferredLanguage(): int|string|null
+    function setupLocale(): string
     {
-        // 从HTTP请求头获取Accept-Language信息
-        $acceptLanguage = request()->header('accept-language');
-        $languages = [];
-
-        // 解析所有语言及其权重
-        foreach (explode(',', $acceptLanguage) as $lang) {
-            $parts = explode(';', $lang);
-            $code = trim($parts[0]);
-            $weight = 1.0; // 默认权重
-
-            if (isset($parts[1]) && str_starts_with($parts[1], 'q=')) {
-                $weight = (float)substr($parts[1], 2);
-            }
-
-            $languages[$code] = $weight;
-        }
-
-        // 按权重降序排序
-        arsort($languages);
-
-        // 权重最高的语言代码
-        $language = key($languages) ?: 'en'; // 默认英语
-
-        // 将最终确定的语言设置存入session，避免重复检测
-        if ($language === 'zh') {
-            $language = 'zh-CN';
-        }
-
+        $language = config('translation.locale', 'en');
+        // 标准化语言代码
+        $language = $language === 'zh' ? 'zh-CN' : $language;
         session()->set('lang', $language);
-
-        // 获取系统配置的备用语言列表
-        $fallback_locale = config('translation.fallback_locale');
-        $normalizedCode = str_replace('-', '_', $language);
-
-        // 验证检测到的语言是否在系统支持的语言列表中
-        if (!in_array($normalizedCode, $fallback_locale)) {
-            // 如果不支持，则使用系统默认的第一个备用语言
-            $normalizedCode = $fallback_locale[0];
-        }
-
-        return $normalizedCode;
+        return $language;
     }
 }
 

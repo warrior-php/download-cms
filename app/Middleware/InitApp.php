@@ -77,7 +77,7 @@ class InitApp implements MiddlewareInterface
      */
     protected function initLang(): void
     {
-        $language = session('lang') ?: getPreferredLanguage();
+        $language = session('lang') ?: setupLocale();
         locale(str_replace('-', '_', $language));
     }
 
