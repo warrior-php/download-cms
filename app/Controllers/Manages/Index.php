@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controllers\Manages;
 
+use App\Controllers\Common;
+
 class Index extends Common
 {
     /**
