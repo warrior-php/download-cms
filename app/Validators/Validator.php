@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Validators;
 
 use Respect\Validation\Exceptions\NestedValidationException;
-use Respect\Validation\Validator;
+use Respect\Validation\Validator as v;
 use support\exception\BusinessException;
 
 /**
@@ -79,7 +79,7 @@ abstract class Validator
      *
      * 子类必须实现，返回字段 => 验证器 的键值对数组。
      *
-     * @return array<string, Validator>
+     * @return array<string, v>
      */
     abstract protected function rules(): array;
 
