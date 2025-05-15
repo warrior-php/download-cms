@@ -65,9 +65,11 @@ class TwigView implements View
                 $extension($views[$viewPath]);
             }
         }
+
         if (isset($request->view_vars)) {
             $vars = array_merge((array)$request->view_vars, $vars);
         }
+
         return $views[$viewPath]->render("$template.$viewSuffix", $vars);
     }
 }

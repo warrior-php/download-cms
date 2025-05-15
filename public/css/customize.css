@@ -19,8 +19,8 @@ html[data-layout=horizontal] .main-menu {
 }
 
 .register-box {
-    width: 24rem;
-    min-width: 24rem;
+    width: 26rem;
+    min-width: 26rem;
     margin: 0 auto;
     padding: 0 .75rem;
 }
