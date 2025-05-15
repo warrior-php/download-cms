@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Rules;
+namespace App\Validators;
 
 use Respect\Validation\Exceptions\NestedValidationException;
 use Respect\Validation\Validator;
@@ -10,14 +10,14 @@ use support\exception\BusinessException;
 /**
  * 验证规则基类（支持场景选择与字段规则验证）
  *
- * 所有自定义的规则类（如 UserRule）需继承该抽象类，并实现 rules() 方法定义字段验证规则。
+ * 所有自定义的规则类（如 UserValidator）需继承该抽象类，并实现 rules() 方法定义字段验证规则。
  * 同时可选实现 scenes() 方法用于支持按场景选择字段。
  *
  * 使用方式：
  *   $rule = new XxxRule();
  *   $rule->scene('register')->validate($data);
  */
-abstract class Rule
+abstract class Validator
 {
     /**
      * 当前选择的场景字段名列表

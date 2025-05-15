@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Rules\Rule;
+use App\Validators\Validator;
 use support\exception\BusinessException;
 
 class Common
@@ -38,7 +38,7 @@ class Common
     /**
      * 通用验证方法
      *
-     * @param string $ruleClass 类名（可传简写：UserRule 或完整命名空间）
+     * @param string $ruleClass 类名（可传简写：UserValidator 或完整命名空间）
      * @param array  $data      待验证的数据
      * @param string $scene     场景名称（可选）
      *
@@ -48,7 +48,7 @@ class Common
     {
         // 拼接完整类名（如果没带命名空间）
         if (!str_contains($ruleClass, '\\')) {
-            $ruleClass = 'App\\Rules\\' . $ruleClass;
+            $ruleClass = 'App\\Validators\\' . $ruleClass;
         }
 
         // 检查类是否存在
@@ -64,7 +64,7 @@ class Common
             $validator->scene($scene);
         }
 
-        /** @var Rule $validator */
+        /** @var Validator $validator */
         $validator->validate($data);
     }
 }

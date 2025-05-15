@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Rules;
+namespace App\Validators;
 
 use Respect\Validation\Validator as v;
 
@@ -9,9 +9,9 @@ use Respect\Validation\Validator as v;
  * 用户相关字段验证规则类
  *
  * 用于校验用户注册、登录等场景中的字段，如用户名、邮箱、密码等。
- * 继承自抽象类 App\Rules\Rule，支持场景切换及字段级别验证。
+ * 继承自抽象类 App\Validators\Validator，支持场景切换及字段级别验证。
  */
-class UserRule extends Rule
+class UserValidator extends Validator
 {
     /**
      * 定义所有字段的通用验证规则
