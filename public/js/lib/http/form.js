@@ -24,10 +24,11 @@
                 focusCleanup: true, // 验证成功后清除失去焦点的错误提示
                 valid: function (form) {
                     this.holdSubmit(true);
-
+                    NProgress.start();
                     if (param.type.toUpperCase() === 'POST') {
                         $(form).ajaxSubmit({
                             type: param.type, dataType: param.datatype, headers: param.headers, timeout: param.timeout, async: true, success: (rel) => {
+                                NProgress.done();
                                 switch (rel.code) {
                                     case 200: // 提示并跳转或静默
                                         parent.layer.toast(rel.message, {'skin': 'success'});
