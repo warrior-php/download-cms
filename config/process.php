@@ -1,17 +1,16 @@
 <?php
 declare(strict_types=1);
 
-use App\Process\Monitor;
+use App\Jobs\Monitor;
 use support\Log;
 use support\Request;
-use App\Process\Http;
 
 global $argv;
 
 return [
     // 主 HTTP 服务配置
     'HttpService' => [
-        'handler'     => Http::class,               // 请求处理类（自定义继承处理器）
+        'handler'     => Webman\App::class,         // 请求处理类（自定义继承处理器）
         'listen'      => 'http://0.0.0.0:8787',     // 监听地址与端口
         'count'       => 1,                         // 启动进程数，建议 cpu 核心数的倍数：cpu_count() * 4
         'user'        => '',                        // 指定运行用户（留空为当前用户）
