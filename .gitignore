@@ -11,3 +11,4 @@
 /warrior
 /config/console.php
 /config/rate-limiter.php
+/resources/install.lock
