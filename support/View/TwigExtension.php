@@ -17,6 +17,7 @@ class TwigExtension extends AbstractExtension
     {
         return [
             new TwigFunction('__PUBLIC__', [$this, 'getPublicPath']), // 注册一个名为 "__PUBLIC__" 的 Twig 模板函数，
+            new TwigFunction('__ASSETS__', [$this, 'getAssetsPath']), // 注册一个名为 "__ASSETS__" 的 Twig 模板函数，
             new TwigFunction('trans', [$this, 'generateTrans']), // 多语言
             new TwigFunction('url', [$this, 'generateUrl']),
             new TwigFunction('csrf_token', [$this, 'generateCsrfToken'])
@@ -45,6 +46,18 @@ class TwigExtension extends AbstractExtension
     public function getPublicPath(string $path = ''): string
     {
         return '/' . ltrim($path, '/');
+    }
+
+    /**
+     * 获取静态资源路径
+     *
+     * @param string $path 可选的相对资源路径，默认值为空字符串
+     *
+     * @return string 返回格式化后的路径字符串，确保前缀为单个 `/`
+     */
+    public function getAssetsPath(string $path = ''): string
+    {
+        return '/assets/' . ltrim($path, '/');
     }
 
     /**

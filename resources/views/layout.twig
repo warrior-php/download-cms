@@ -16,19 +16,16 @@
     <meta content="{{ base_uri }}" name="base_uri"/>
     <meta content="{{ csrf_token() }}" name="csrf-token"/>
     <title>
-        {% block title %}
-            {{ trans("Site title") }}
-        {% endblock %}
+        {% block title %}{{ trans("Site title") }}{% endblock %}
     </title>
     <!-- App favicon -->
     <link href="{{ __PUBLIC__('images/favicon.ico') }}" rel="shortcut icon"/>
     <!-- App css -->
-    <link href="{{ __PUBLIC__('css/style.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ __PUBLIC__('css/icons.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ __PUBLIC__('css/customize.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ __ASSETS__('css/style.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ __ASSETS__('css/icons.min.css') }}" rel="stylesheet" type="text/css">
     <!-- App script -->
-    <script type="text/javascript" src="{{ __PUBLIC__('js/do.min.js') }}"></script>
-    <script type="text/javascript" src="{{ __PUBLIC__('js/package.js') }}"></script>
+    <script type="text/javascript" src="{{ __ASSETS__('js/do.min.js') }}"></script>
+    <script type="text/javascript" src="{{ __ASSETS__('js/package.js') }}"></script>
 </head>
 <body>
 {% block container %}
