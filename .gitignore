@@ -9,3 +9,5 @@
 /start.php
 /windows.php
 /warrior
+/config/console.php
+/config/rate-limiter.php
