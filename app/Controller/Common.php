@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controllers;
+namespace App\Controller;
 
-use App\Validators\Validator;
+use App\Request\Validator;
 use support\exception\BusinessException;
 
 class Common
@@ -48,7 +48,7 @@ class Common
     {
         // 拼接完整类名（如果没带命名空间）
         if (!str_contains($ruleClass, '\\')) {
-            $ruleClass = 'App\\Validators\\' . $ruleClass;
+            $ruleClass = 'App\\Request\\' . $ruleClass;
         }
 
         // 检查类是否存在

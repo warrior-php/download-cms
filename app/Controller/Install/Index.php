@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controllers\Install;
+namespace App\Controller\Install;
 
 class Index
 {

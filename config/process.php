@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use App\Jobs\Monitor;
+use App\Job\Monitor;
 use support\Log;
 use support\Request;
 
@@ -31,7 +31,7 @@ return [
         'handler'     => Monitor::class,                // 热重载进程类
         'reloadable'  => false,                         // 是否允许子进程自动重载
         'constructor' => [
-            'monitorDir' => array_merge([
+            'monitorDir'        => array_merge([
                 app_path(),                                // app 目录
                 config_path(),                             // 配置目录
                 base_path() . '/process',                  // 自定义进程
@@ -42,10 +42,8 @@ return [
                 glob(base_path() . '/plugin/*/app'),
                 glob(base_path() . '/plugin/*/config'),
                 glob(base_path() . '/plugin/*/api')),
-
             'monitorExtensions' => ['php', 'html', 'htm', 'env', 'twig'], // 监听的文件扩展名
-
-            'options' => [
+            'options'           => [
                 'enable_file_monitor'   => !in_array('-d', $argv) && DIRECTORY_SEPARATOR === '/',   // 启用文件变更监听（Linux/macOS）
                 'enable_memory_monitor' => DIRECTORY_SEPARATOR === '/',                                     // 启用内存监控（Linux/macOS）
             ]

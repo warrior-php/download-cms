@@ -55,7 +55,7 @@ class TwigView implements View
                 $viewPath = base_path();
             }
         } else {
-            $viewPath = $app === '' ? "$baseViewPath/view/" : $baseViewPath;
+            $viewPath = $app === '' ? "$baseViewPath" : $baseViewPath;
         }
 
         if (!isset($views[$viewPath])) {

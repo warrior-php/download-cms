@@ -141,9 +141,9 @@
      rules         {Object}                      Custom rules for the current instance
      fields        {Object}                      Field validation configuration
      {String}        key    name|#id
-     {String|Object} value                       Validator string or an object which can pass more arguments
+     {String|Object} value                       Request string or an object which can pass more arguments
 
-     fields[key][rule]       {String}            Validator string
+     fields[key][rule]       {String}            Request string
      fields[key][display]    {String|Function}
      fields[key][tip]        {String}            Custom tip message
      fields[key][ok]         {String}            Custom success message
@@ -238,7 +238,7 @@
     });
 
     /**
-     * Creates a new Validator
+     * Creates a new Request
      *
      * @class
      * @param {Element} element - form element
@@ -1527,7 +1527,7 @@
         }
     }
 
-    // Validator converted factory
+    // Request converted factory
     function _getRule(fn) {
         switch ($.type(fn)) {
             case 'function':
@@ -1616,7 +1616,7 @@
         return Date.parse(str.replace(/\.|\-/g, '/'));
     }
 
-    // Validator name only allows alphanumeric characters and underscores
+    // Request name only allows alphanumeric characters and underscores
     function _checkRuleName(name) {
         return /^\w+$/.test(name);
     }

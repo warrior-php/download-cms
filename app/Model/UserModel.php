@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Model;
 
 use RuntimeException;
 use support\exception\BusinessException;

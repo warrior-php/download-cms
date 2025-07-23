@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controllers\User;
+namespace App\Controller\User;
 
-use App\Controllers\Common;
-use App\Models\UserModel;
-use App\Services\MailService;
+use App\Controller\Common;
+use App\Model\UserModel;
+use App\Service\MailService;
 use Exception;
 use support\Redis;
 use support\Request;

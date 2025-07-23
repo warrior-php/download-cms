@@ -1,22 +1,22 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Validators;
+namespace App\Request;
 
 use Respect\Validation\Validator as v;
 
 /**
- * 用户相关字段验证规则类
+ * 用户相关字段验证规则类 Request
  *
  * 用于校验用户注册、登录等场景中的字段，如用户名、邮箱、密码等。
- * 继承自抽象类 App\Validators\Validator，支持场景切换及字段级别验证。
+ * 继承自抽象类 App\Request\Request，支持场景切换及字段级别验证。
  */
 class User extends Validator
 {
     /**
      * 定义所有字段的通用验证规则
      *
-     * 每个字段对应一个 Respect\Validation\Validator 验证器。
+     * 每个字段对应一个 Respect\Validation\Request 验证器。
      * 通过 scene() 方法可筛选特定场景下的字段。
      *
      * @return array<string, v>

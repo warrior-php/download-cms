@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controllers\Manages;
+namespace App\Controller\Manages;
 
-use App\Controllers\Common;
+use App\Controller\Common;
 
 class Index extends Common
 {
