@@ -1,0 +1,56 @@
+{% extends './layout.Twig' %}
+{% block title %}{{ trans("admin.login.pageTitle") }}{% endblock %}
+{% block body %}
+    <body class="bg-primary d-flex justify-content-center align-items-center min-vh-100 p-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-md-5">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="text-center w-75 mx-auto auth-logo mb-4">
+                            <a href="{{ url('index') }}" class="logo-dark">
+                                <span><img src="{{ __ASSETS__('images/logo-dark.png') }}" alt="" height="22"></span>
+                            </a>
+                            <a href="{{ url('index') }}" class="logo-light">
+                                <span><img src="{{ __ASSETS__('images/logo-light.png') }}" alt="" height="22"></span>
+                            </a>
+                        </div>
+                        <form id="form" action="{{ url('manage.login') }}" autocomplete="off">
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="email">{{ trans("admin.login.emailAddress") }}</label>
+                                <input class="form-control" type="email" id="email" data-rule="required" placeholder="{{ trans("admin.login.enterEmail") }}" autocomplete="off">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="password">{{ trans("admin.login.password") }}</label>
+                                <input class="form-control" type="password" data-rule="required" id="password" placeholder="{{ trans("admin.login.enterYourPassword") }}" autocomplete="new-password">
+                            </div>
+                            <div class="form-group mb-3">
+                                <input class="form-check-input" type="checkbox" id="checkbox-signin" checked>
+                                <label class="form-check-label ms-2" for="checkbox-signin">{{ trans("admin.login.rememberMe") }}</label>
+                            </div>
+                            <div class="form-group mb-0 text-center">
+                                <button class="btn btn-primary w-100" type="submit">{{ trans("admin.login.logIn") }}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- end card -->
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <p class="text-white-50">
+                            <span>Powered by <a href="{{ base_uri }}" class="text-white font-weight-medium ms-1">{{ system_name }} {{ version }}</a></span>
+                            <span>© 2010-<script>document.write(new Date().getFullYear())</script></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        Do('base', 'form', () => {
+            NProgress.start();
+            NProgress.done();
+            $('#form').isForm();
+        });
+    </script>
+    </body>
+{% endblock %}

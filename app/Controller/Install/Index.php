@@ -3,13 +3,15 @@ declare(strict_types=1);
 
 namespace App\Controller\Install;
 
+use support\Response;
+
 class Index
 {
     /**
-     * @return string
+     * @return Response
      */
-    public function index(): string
+    public function index(): Response
     {
-        return 'index';
+        return view('install/index');
     }
 }

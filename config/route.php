@@ -23,9 +23,10 @@ Route::group('/user', function () {
 })->middleware([App\Middleware\Authorize::class]);
 
 // 管理员相关
-Route::group('/manages', function () {
-    Route::get('/index', [App\Controller\Manages\Index::class, 'index'])->name('manages.index');
-});
+Route::group('/manage', function () {
+    Route::get('/index', [App\Controller\Manage\Index::class, 'index'])->name('manage.index');
+    Route::get('/login', [App\Controller\Manage\Index::class, 'login'])->name('manage.login');
+})->middleware([App\Middleware\Authorize::class]);
 
 // 404处理路由
 Route::fallback(function (Request $request, $status) {

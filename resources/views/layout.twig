@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<html
-        lang="{{ lang }}"
-        data-layout="{% block layout %}horizontal{% endblock %}"
-        data-menu-color="{% block menuColor %}light{% endblock %}"
-        data-topbar-color="{% block topbarColor %}light{% endblock %}"
-        data-bs-theme="{% block bsTheme %}light{% endblock %}
-">
+<html lang="{{ lang }}" data-menu-color="{% block menu_color %}light{% endblock %}" data-topbar-color="{% block topbar_color %}light{% endblock %}" data-bs-theme="{% block bs_theme %}light{% endblock %}">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
@@ -18,33 +12,31 @@
     <title>
         {% block title %}{{ trans("Site title") }}{% endblock %}
     </title>
-    <!-- App favicon -->
-    <link href="{{ __PUBLIC__('images/favicon.ico') }}" rel="shortcut icon"/>
-    <!-- App css -->
+    <!-- Favicon -->
+    <link href="{{ __PUBLIC__('favicon.ico') }}" rel="shortcut icon"/>
+    <!-- Css -->
     <link href="{{ __ASSETS__('css/style.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ __ASSETS__('css/icons.min.css') }}" rel="stylesheet" type="text/css">
-    <!-- App script -->
+    <!-- Script -->
     <script type="text/javascript" src="{{ __ASSETS__('js/do.min.js') }}"></script>
     <script type="text/javascript" src="{{ __ASSETS__('js/package.js') }}"></script>
 </head>
-<body>
-{% block container %}
-    <div class="layout-wrapper">
-        <div class="page-content">
-            {% block header %}{% endblock %}
-            {% block main %}{% endblock %}
-            {% block footer %}{% endblock %}
+{% block body %}
+    <body>
+    {% block layout_wrapper %}
+        <div class="layout-wrapper">
+            {% block left_sidebar %}{% endblock %}
+            {% block page_content %}{% endblock %}
         </div>
-    </div>
+    {% endblock %}
+    {% block script %}
+        <script type="text/javascript">
+            Do('base', () => {
+                NProgress.start();
+                NProgress.done();
+            });
+        </script>
+    {% endblock %}
+    </body>
 {% endblock %}
-
-{% block script %}
-    <script type="text/javascript">
-        Do('base', () => {
-            NProgress.start();
-            NProgress.done();
-        });
-    </script>
-{% endblock %}
-</body>
 </html>

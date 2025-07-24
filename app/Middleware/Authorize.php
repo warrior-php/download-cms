@@ -22,27 +22,23 @@ class Authorize implements MiddlewareInterface
      */
     public function process(Request $request, callable $handler): Response
     {
-        $controller = $request->controller;
+        $controllerClass = $request->controller;
         $action = $request->action;
-        $code = 0;
-        $msg = trans("Unknown Error");
-
-        if (session('user')) {
-            // 已经登录，请求继续向洋葱芯穿越
+        $isManage = str_contains($controllerClass, 'Manage');
+        $sessionKey = $isManage ? 'manage' : 'user';
+        $redirectUrl = $isManage ? url('manage.login') : url('user.login');
+        // 已登录直接放行
+        if (session($sessionKey)) {
             return $handler($request);
         }
-
-        // 通过反射获取控制器哪些方法不需要登录
-        $controller = new ReflectionClass($request->controller);
-        $noNeedLogin = $controller->getDefaultProperties()['noNeedLogin'] ?? [];
-
-        // 访问的方法需要登录
-        if (!in_array($request->action, $noNeedLogin)) {
-            // 拦截请求，返回一个重定向响应，请求停止向洋葱芯穿越
-            return redirect(url('user.login'));
+        // 通过反射获取控制器的 noNeedLogin 属性
+        $reflection = new ReflectionClass($controllerClass);
+        $noNeedLogin = $reflection->getDefaultProperties()['noNeedLogin'] ?? [];
+        // 如果当前 action 不在免登录列表，拦截重定向
+        if (!in_array($action, $noNeedLogin)) {
+            return redirect($redirectUrl);
         }
-
-        // 不需要登录，请求继续向洋葱芯穿越
+        // 不需要登录，放行
         return $handler($request);
     }
 }

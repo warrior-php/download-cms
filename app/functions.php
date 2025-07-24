@@ -41,21 +41,52 @@ if (!function_exists('url')) {
     }
 }
 
-// 解析 Accept-Language HTTP 请求头来获取用户浏览器或设备的首选语言
+// 设置语言环境
 if (!function_exists('setupLocale')) {
     /**
      * 初始化语言环境，并设置到 session 中
      *
+     * @param $acceptLang
+     *
      * @return string
      * @throws Exception
      */
-    function setupLocale(): string
+    function setupLocale($acceptLang): string
     {
-        $language = config('translation.locale', 'en');
-        // 标准化语言代码
-        $language = $language === 'zh' ? 'zh-CN' : $language;
+        $defaultLang = config('translation.locale');
+        $browserLang = str_replace('-', '_', parseAcceptLanguage($acceptLang));
+        $supported = config('translation.fallback_locale');
+        if (in_array($browserLang, $supported, true)) {
+            $language = $browserLang;
+        } else {
+            $language = $defaultLang;
+        }
         session()->set('lang', $language);
         return $language;
+    }
+}
+
+// 解析 Accept-Language HTTP 请求头来获取用户浏览器或设备的首选语言
+if (!function_exists('parseAcceptLanguage')) {
+    /**
+     * @param string $acceptLanguage
+     *
+     * @return string
+     */
+    function parseAcceptLanguage(string $acceptLanguage): string
+    {
+        if (empty($acceptLanguage)) {
+            return '';
+        }
+        $langs = explode(',', $acceptLanguage);
+        if (empty($langs)) {
+            return '';
+        }
+        $primary = explode(';', trim($langs[0]))[0];
+        if ($primary === 'zh') {
+            return 'zh-CN';
+        }
+        return $primary;
     }
 }
 
