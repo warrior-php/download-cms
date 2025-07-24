@@ -3,7 +3,7 @@ declare(strict_types=1);
 // 中文简体
 return [
     'install' => [
-        'pageTitle'             => 'Hoym Download CMS 安装向导',
+        'pageTitle'             => 'WarriorPHP 安装向导',
         'installedWarning'      => '系统已安装完毕，如需重新安装，请删除 resources/install.lock 文件。',
         'installationWizard'    => '安装向导',
         'databaseConfiguration' => '数据库配置',
@@ -21,6 +21,9 @@ return [
         'notCovered'            => '不覆盖',
         'nextStep'              => '下一步',
     ],
+    'home'    => [
+        'navigation' => '导航'
+    ],
     'admin'   => [
         'login' => [
             'pageTitle'         => '管理员登录',
@@ -31,5 +34,8 @@ return [
             'rememberMe'        => '记住账号',
             'logIn'             => '登录',
         ]
+    ],
+    'request' => [
+        'enterValidEmail' => '请输入有效的电子邮件地址'
     ]
 ];

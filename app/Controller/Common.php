@@ -44,26 +44,22 @@ class Common
      *
      * @return void
      */
-    protected function validateWith(string $ruleClass, array $data, string $scene = ''): void
+    protected function validate(string $ruleClass, array $data, string $scene = ''): void
     {
         // 拼接完整类名（如果没带命名空间）
         if (!str_contains($ruleClass, '\\')) {
             $ruleClass = 'App\\Request\\' . $ruleClass;
         }
-
         // 检查类是否存在
         if (!class_exists($ruleClass)) {
             throw new BusinessException("Class not found: $ruleClass");
         }
-
         // 实例化验证器
         $validator = new $ruleClass();
-
         // 如果提供了场景，则设置
         if ($scene && method_exists($validator, 'scene')) {
             $validator->scene($scene);
         }
-
         /** @var Validator $validator */
         $validator->validate($data);
     }

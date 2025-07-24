@@ -41,7 +41,7 @@ class Index extends Common
     {
         if ($request->isAjax()) {
             $data = request()->post();
-            $this->validateWith('User', $data, 'register');
+            $this->validate('User', $data, 'register');
             session()->set('register', $data);
 
             // 发送邮件验证码
@@ -84,9 +84,8 @@ class Index extends Common
     {
         if ($request->isAjax()) {
             $data = request()->post();
-            $this->validateWith('User', $data, 'login');
+            $this->validate('User', $data, 'login');
         }
-
         return view('user/login');
     }
 

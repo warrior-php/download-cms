@@ -3,7 +3,7 @@ declare(strict_types=1);
 // 泰语
 return [
     'install' => [
-        'pageTitle'             => 'Hoym Download CMS ตัวช่วยติดตั้ง',
+        'pageTitle'             => 'WarriorPHP ตัวช่วยติดตั้ง',
         'installedWarning'      => 'ระบบได้รับการติดตั้งแล้ว หากต้องการติดตั้งใหม่ โปรดลบไฟล์ resources/install.lock',
         'installationWizard'    => 'ตัวช่วยติดตั้ง',
         'databaseConfiguration' => 'การตั้งค่าฐานข้อมูล',
@@ -21,6 +21,9 @@ return [
         'notCovered'            => 'ไม่เขียนทับ',
         'nextStep'              => 'ถัดไป',
     ],
+    'home'    => [
+        'navigation' => 'แถบนำทาง'
+    ],
     'admin'   => [
         'login' => [
             'pageTitle'         => 'เข้าสู่ระบบผู้ดูแล',
@@ -31,5 +34,8 @@ return [
             'rememberMe'        => 'จำบัญชีของฉัน',
             'logIn'             => 'เข้าสู่ระบบ',
         ]
+    ],
+    'request' => [
+        'enterValidEmail' => 'กรุณากรอกที่อยู่อีเมลที่ถูกต้อง'
     ]
 ];

@@ -3,7 +3,7 @@ declare(strict_types=1);
 // 英语
 return [
     'install' => [
-        'pageTitle'             => 'Hoym Download CMS Installation Wizard',
+        'pageTitle'             => 'WarriorPHP Installation Wizard',
         'installedWarning'      => 'The system has been installed. To reinstall, delete the resources/install.lock file.',
         'installationWizard'    => 'Installation wizard',
         'databaseConfiguration' => 'Database configuration',
@@ -21,6 +21,9 @@ return [
         'notCovered'            => 'Not covered',
         'nextStep'              => 'Next step',
     ],
+    'home'    => [
+        'navigation' => '导航'
+    ],
     'admin'   => [
         'login' => [
             'pageTitle'         => 'Administrator login',
@@ -31,5 +34,8 @@ return [
             'rememberMe'        => 'Remember me',
             'logIn'             => 'Log In',
         ]
+    ],
+    'request' => [
+        'enterValidEmail' => 'Please enter a valid email address'
     ]
 ];

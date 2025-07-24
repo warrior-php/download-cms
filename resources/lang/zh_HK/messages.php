@@ -3,7 +3,7 @@ declare(strict_types=1);
 // 中文繁體（香港）
 return [
     'install' => [
-        'pageTitle'             => 'Hoym Download CMS 安裝精靈',
+        'pageTitle'             => 'WarriorPHP 安裝精靈',
         'installedWarning'      => '系統已安裝。若要重新安裝，請刪除 resources/install.lock 檔案。',
         'installationWizard'    => '安裝精靈',
         'databaseConfiguration' => '資料庫設定',
@@ -21,6 +21,9 @@ return [
         'notCovered'            => '不覆蓋',
         'nextStep'              => '下一步',
     ],
+    'home'    => [
+        'navigation' => '導航'
+    ],
     'admin'   => [
         'login' => [
             'pageTitle'         => '管理員登入',
@@ -31,5 +34,8 @@ return [
             'rememberMe'        => '記住帳戶',
             'logIn'             => '登入',
         ]
+    ],
+    'request' => [
+        'enterValidEmail' => '請輸入有效的電子郵件地址'
     ]
 ];

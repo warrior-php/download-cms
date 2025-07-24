@@ -5,7 +5,7 @@ return [
     // Default language
     'locale'          => 'en',
     // Fallback language
-    'fallback_locale' => ['en', 'zh_CN', 'zh_TW', 'zh_HK', 'th'],
+    'fallback_locale' => ['en', 'zh_CN', 'zh_TW', 'zh_HK', 'th', 'ko'],
     // Folder where language files are stored
     'path'            => base_path() . '/resources/lang',
 ];

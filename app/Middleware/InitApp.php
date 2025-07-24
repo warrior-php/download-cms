@@ -20,12 +20,12 @@ class InitApp implements MiddlewareInterface
     /**
      * 应用名称
      */
-    protected const string SYSTEM_NAME = 'Hoym CMS';
+    protected const string SYSTEM_NAME = 'WarriorPHP';
 
     /**
      * 服务中心地址（用于版本检测与互联）
      */
-    protected const string BASE_URI = 'https://www.hoym.net';
+    protected const string BASE_URI = 'https://warriorphp.com';
 
     /**
      * 安装锁文件路径
