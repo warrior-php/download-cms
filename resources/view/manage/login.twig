@@ -1,5 +1,5 @@
 {% extends './layout.Twig' %}
-{% block title %}{{ trans("admin.login.pageTitle") }}{% endblock %}
+{% block title %}{{ trans("manage.index.login.pageTitle") }}{% endblock %}
 {% block body %}
     <body class="bg-primary d-flex justify-content-center align-items-center min-vh-100 p-5">
     <div class="container">
@@ -7,7 +7,7 @@
             <div class="col-xl-4 col-md-5">
                 <div class="card">
                     <div class="card-body p-4">
-                        <div class="text-center w-75 mx-auto auth-logo mb-4">
+                        <div class="text-center w-50 mx-auto auth-logo mt-2 mb-4">
                             <a href="{{ url('index') }}" class="logo-dark">
                                 <span><img src="{{ __ASSETS__('images/logo-dark.png') }}" alt="" height="22"></span>
                             </a>
@@ -17,19 +17,23 @@
                         </div>
                         <form id="form" action="{{ url('manage.login') }}" autocomplete="off">
                             <div class="form-group mb-3">
-                                <label class="form-label" for="email">{{ trans("admin.login.emailAddress") }}</label>
-                                <input class="form-control" name="email" type="email" id="email" data-rule="required" placeholder="{{ trans("admin.login.enterEmail") }}" autocomplete="off">
+                                <label class="form-label" for="email">{{ trans("manage.index.login.emailAddress") }}</label>
+                                <input class="form-control" name="email" type="email" id="email" data-rule="required" placeholder="{{ trans("manage.index.login.enterEmail") }}" autocomplete="off">
                             </div>
                             <div class="form-group mb-3">
-                                <label class="form-label" for="password">{{ trans("admin.login.password") }}</label>
-                                <input class="form-control" name="password" type="password" data-rule="required" id="password" placeholder="{{ trans("admin.login.enterYourPassword") }}" autocomplete="new-password">
+                                <label class="form-label" for="password">{{ trans("manage.index.login.password") }}</label>
+                                <input class="form-control" name="password" type="password" data-rule="required" id="password" placeholder="{{ trans("manage.index.login.enterYourPassword") }}" autocomplete="new-password">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="captcha">{{ trans("manage.index.login.captcha") }}</label>
+                                <input class="form-control" name="captcha" type="text" data-rule="required" id="captcha" placeholder="{{ trans("manage.index.login.enterYourPassword") }}" autocomplete="new-password">
                             </div>
                             <div class="form-group mb-3">
                                 <input class="form-check-input" type="checkbox" id="checkbox-signin" checked>
-                                <label class="form-check-label ms-2" for="checkbox-signin">{{ trans("admin.login.rememberMe") }}</label>
+                                <label class="form-check-label ms-2" for="checkbox-signin">{{ trans("manage.index.login.rememberMe") }}</label>
                             </div>
                             <div class="form-group mb-0 text-center">
-                                <button class="btn btn-primary w-100" type="submit">{{ trans("admin.login.logIn") }}</button>
+                                <button class="btn btn-primary w-100" type="submit">{{ trans("manage.index.login.logIn") }}</button>
                             </div>
                         </form>
                     </div>

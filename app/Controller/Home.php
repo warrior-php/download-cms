@@ -5,7 +5,7 @@ namespace App\Controller;
 
 use support\Response;
 
-class Index extends Common
+class Home extends Common
 {
     /**
      * 网站首页
