@@ -6,6 +6,7 @@ namespace App\Controller\Manage;
 use App\Controller\Common;
 use support\Request;
 use support\Response;
+use Warrior\RateLimiter\Annotation\RateLimiter;
 
 class Index extends Common
 {
@@ -21,11 +22,13 @@ class Index extends Common
 
     /**
      * 管理员登录
+     * 每个ip60秒最多10个请求
      *
      * @param Request $request
      *
      * @return Response
      */
+    #[RateLimiter(limit: 10, ttl: 60)]
     public function login(Request $request): Response
     {
         if ($request->isAjax()) {
