@@ -79,11 +79,9 @@ class UserModel extends Model
     public static function findByIdentifier(string $identifier): ?UserModel
     {
         $identifier = trim($identifier);
-
         if (empty($identifier)) {
             throw new BusinessException(message: trans("Unknown Error"));
         }
-
         return match (true) {
             filter_var($identifier, FILTER_VALIDATE_EMAIL) => self::where('email', $identifier)->first(),
             default => is_numeric($identifier) ? self::find($identifier) : self::where('username', $identifier)->first(),
@@ -102,7 +100,6 @@ class UserModel extends Model
         if (self::where('email', $email)->exists()) {
             return true;
         }
-
         return false;
     }
 
@@ -118,7 +115,6 @@ class UserModel extends Model
         if (self::where('username', $email)->exists()) {
             return true;
         }
-
         return false;
     }
 
@@ -140,7 +136,6 @@ class UserModel extends Model
             if (!$user->save()) {
                 throw new RuntimeException('Save failed');
             }
-
             return $user;
         } catch (Throwable $e) {
             // 记录错误日志
@@ -148,7 +143,6 @@ class UserModel extends Model
                 'error' => $e->getMessage(),
                 'trace' => $e->getTraceAsString()
             ]);
-
             throw new BusinessException(trans("User creation failed"));
         }
     }

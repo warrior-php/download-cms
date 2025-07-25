@@ -59,35 +59,28 @@ class MailService
             } else {
                 $this->mailer->addAddress($to);
             }
-
             // 设置回复地址
             if ($replyTo) {
                 $this->mailer->addReplyTo($replyTo['email'], $replyTo['name'] ?? '');
             }
-
             // 添加抄送地址
             foreach ($cc as $email) {
                 $this->mailer->addCC($email);
             }
-
             // 添加密送地址
             foreach ($bcc as $email) {
                 $this->mailer->addBCC($email);
             }
-
             // 添加附件
             foreach ($attachments as $file => $filename) {
                 $this->mailer->addAttachment($file, $filename);
             }
-
             // 邮件内容设置
             $this->mailer->isHTML(); // 启用 HTML 格式邮件
             $this->mailer->Subject = $subject; // 设置邮件主题
             $this->mailer->Body = $body; // 设置邮件正文
-
             // 发送邮件
             $this->mailer->send();
-
             return ['success' => true];
         } catch (Exception $e) {
             return ['success' => false, 'error' => $this->mailer->ErrorInfo];
@@ -110,7 +103,6 @@ class MailService
         $this->mailer->Port = 465; // 阿里云推荐的 SSL 加密端口
         $this->mailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // 启用 SMTPS 加密
         $this->mailer->SMTPAuth = true; // 启用 SMTP 身份验证
-
         $this->mailer->Username = 'no-reply@hoym.net'; // 发件人 SMTP 用户名（完整邮箱地址）
         $this->mailer->Password = 'hoym2025ailA21sXs'; // SMTP 授权码（不是邮箱登录密码）
         $this->mailer->setFrom('no-reply@hoym.net', trans("Website notification")); // 设置默认发件人地址和名称

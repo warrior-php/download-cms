@@ -15,8 +15,6 @@ class User extends Validator
 {
     /**
      * 定义所有字段的通用验证规则
-     *
-     * 每个字段对应一个 Respect\Validation\Request 验证器。
      * 通过 scene() 方法可筛选特定场景下的字段。
      *
      * @return array<string, v>
@@ -71,17 +69,7 @@ class User extends Validator
     protected function scenes(): array
     {
         return [
-
-            /**
-             * 注册场景：
-             * - 需要验证用户名、邮箱、密码
-             */
             'register' => ['username', 'email', 'password'],
-
-            /**
-             * 登录场景：
-             * - 只需验证用户名和密码（邮箱或用户名均可）
-             */
             'login'    => ['username', 'password'],
         ];
     }

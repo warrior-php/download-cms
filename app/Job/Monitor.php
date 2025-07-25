@@ -107,7 +107,6 @@ class Monitor
                 });
             }
         }
-
         $memoryLimit = $this->getMemoryLimit($options['memory_limit'] ?? null);
         if ($memoryLimit && ($options['enable_memory_monitor'] ?? true)) {
             Timer::add(60, [$this, 'checkMemory'], [$memoryLimit]);

@@ -9,10 +9,8 @@ use support\exception\BusinessException;
 
 /**
  * 验证规则基类（支持场景选择与字段规则验证）
- *
  * 所有自定义的规则类（如 User）需继承该抽象类，并实现 rules() 方法定义字段验证规则。
  * 同时可选实现 scenes() 方法用于支持按场景选择字段。
- *
  * 使用方式：
  *   $rule = new XxxRule();
  *   $rule->scene('register')->validate($data);
@@ -31,7 +29,6 @@ abstract class Validator
 
     /**
      * 设置当前验证场景
-     *
      * 场景通过 scenes() 方法返回的字段列表进行匹配。
      *
      * @param string $name 场景名称
@@ -58,12 +55,10 @@ abstract class Validator
     public function validate(array $data): void
     {
         $rules = $this->rules();
-
         // 如果设置了场景，则只验证该场景下的字段
         if (!empty($this->scene)) {
             $rules = array_intersect_key($rules, array_flip($this->scene));
         }
-
         foreach ($rules as $field => $validator) {
             try {
                 $validator->assert($data[$field] ?? null);

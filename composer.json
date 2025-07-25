@@ -45,7 +45,9 @@
     "warrior-php/console": "^1.0",
     "warrior-php/rate-limiter": "^1.0",
     "mailgun/mailgun-php": "^4.3",
-    "phpmailer/phpmailer": "^6.10"
+    "phpmailer/phpmailer": "^6.10",
+    "ext-posix": "*",
+    "ext-pcntl": "*"
   },
   "suggest": {
     "ext-event": "For better performance. "
