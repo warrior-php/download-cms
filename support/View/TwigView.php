@@ -45,7 +45,6 @@ class TwigView implements View
         $configPrefix = $plugin ? "plugin.$plugin." : '';
         $viewSuffix = config("{$configPrefix}view.options.view_suffix", 'html');
         $baseViewPath = $plugin ? base_path() . "/plugin/$plugin/app" : ($app == 'public' ? public_path() : views_path());
-
         if ($template[0] === '/') {
             $template = ltrim($template, '/');
             if (str_contains($template, '/view/')) {
@@ -57,7 +56,6 @@ class TwigView implements View
         } else {
             $viewPath = $app === '' ? "$baseViewPath" : $baseViewPath;
         }
-
         if (!isset($views[$viewPath])) {
             $views[$viewPath] = new Environment(new FilesystemLoader($viewPath), config("{$configPrefix}view.options", []));
             $extension = config("{$configPrefix}view.extension");
@@ -65,11 +63,9 @@ class TwigView implements View
                 $extension($views[$viewPath]);
             }
         }
-
         if (isset($request->view_vars)) {
             $vars = array_merge((array)$request->view_vars, $vars);
         }
-
         return $views[$viewPath]->render("$template.$viewSuffix", $vars);
     }
 }

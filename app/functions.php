@@ -11,7 +11,7 @@ if (!function_exists('views_path')) {
      *
      * @return string
      */
-    function views_path(string $path = 'views'): string
+    function views_path(string $path = 'view'): string
     {
         return path_combine(BASE_PATH . DIRECTORY_SEPARATOR . 'resources', $path);
     }
