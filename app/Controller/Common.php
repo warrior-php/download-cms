@@ -41,13 +41,15 @@ class Common
     protected array $noNeedAuth = ['logout'];
 
     /**
+     * 验证码接口
+     *
      * @param Request $request
      * @param string  $type
      *
      * @return Response
      * @throws Exception
      */
-    protected function captcha(Request $request, string $type = 'login'): Response
+    public function captcha(Request $request, string $type = 'login'): Response
     {
         $builder = new PhraseBuilder(4, 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ');
         $captcha = new CaptchaBuilder(null, $builder);
