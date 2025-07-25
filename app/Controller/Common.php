@@ -5,6 +5,11 @@ namespace App\Controller;
 
 use App\Request\Validator;
 use support\exception\BusinessException;
+use support\Request;
+use support\Response;
+use Exception;
+use Webman\Captcha\CaptchaBuilder;
+use Webman\Captcha\PhraseBuilder;
 
 class Common
 {
@@ -20,7 +25,7 @@ class Common
      *
      * @var string[]
      */
-    protected array $noNeedLogin = ['login'];
+    protected array $noNeedLogin = ['login', 'captcha'];
 
     /**
      * 无需鉴权的操作列表
@@ -34,6 +39,23 @@ class Common
      * @var string[]
      */
     protected array $noNeedAuth = ['logout'];
+
+    /**
+     * @param Request $request
+     * @param string  $type
+     *
+     * @return Response
+     * @throws Exception
+     */
+    protected function captcha(Request $request, string $type = 'login'): Response
+    {
+        $builder = new PhraseBuilder(4, 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ');
+        $captcha = new CaptchaBuilder(null, $builder);
+        $captcha->build(120);
+        $request->session()->set("captcha-$type", strtolower($captcha->getPhrase()));
+        $img_content = $captcha->get();
+        return response($img_content, 200, ['Content-Type' => 'image/jpeg']);
+    }
 
     /**
      * 通用验证方法
