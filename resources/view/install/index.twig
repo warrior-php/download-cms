@@ -1,5 +1,5 @@
 {% extends './layout.Twig' %}
-{% block title %}{{ trans("install.index.pageTitle") }}{% endblock %}
+{% block title %}{{ trans("install.index.key001") }}{% endblock %}
 
 {% block page_content %}
     <div class="page-content">
@@ -10,13 +10,13 @@
                 <div class="py-3 py-lg-4">
                     <div class="row">
                         <div class="col-lg-6">
-                            <h4 class="page-title mb-0">{{ system_name }}<span class="ms-1">{{ trans('install.index.installationWizard') }}</span></h4>
+                            <h4 class="page-title mb-0">{{ system_name }}<span class="ms-1">{{ trans('install.index.key003') }}</span></h4>
                         </div>
                         <div class="col-lg-6">
                             <div class="d-none d-lg-block">
                                 <ol class="breadcrumb m-0 float-end">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ trans('install.index.installationWizard') }}</a></li>
-                                    <li class="breadcrumb-item active">{{ trans('install.index.databaseConfiguration') }}</li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{ trans('install.index.key003') }}</a></li>
+                                    <li class="breadcrumb-item active">{{ trans('install.index.key004') }}</li>
                                 </ol>
                             </div>
                         </div>
@@ -27,52 +27,52 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">{{ trans('install.index.databaseConfiguration') }}</h4>
-                                <p class="sub-header">{{ trans('install.index.installationTips') }}</p>
+                                <h4 class="header-title">{{ trans('install.index.key004') }}</h4>
+                                <p class="sub-header">{{ trans('install.index.key005') }}</p>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="p-2">
                                             <form id="form" action="{{ url('install.index.index') }}" autocomplete="off">
                                                 <div class="mb-2 row">
-                                                    <label class="col-md-2 col-form-label" for="database_host">{{ trans('install.index.databaseAddress') }}</label>
+                                                    <label class="col-md-2 col-form-label" for="database_host">{{ trans('install.index.key006') }}</label>
                                                     <div class="col-md-10">
-                                                        <input type="text" name="database_host" id="database_host" class="form-control" value="localhost" placeholder="{{ trans('install.index.enterDatabaseHost') }}" data-rule="required">
+                                                        <input type="text" name="database_host" id="database_host" class="form-control" value="localhost" placeholder="{{ trans('install.index.key007') }}" data-rule="required">
                                                     </div>
                                                 </div>
                                                 <div class="mb-2 row">
-                                                    <label class="col-md-2 col-form-label" for="database_port">{{ trans('install.index.databasePort') }}</label>
+                                                    <label class="col-md-2 col-form-label" for="database_port">{{ trans('install.index.key008') }}</label>
                                                     <div class="col-md-10">
-                                                        <input type="number" id="database_port" name="database_port" value="3306" class="form-control" placeholder="{{ trans('install.index.enterDatabasePort') }}" data-rule="required">
+                                                        <input type="number" id="database_port" name="database_port" value="3306" class="form-control" placeholder="{{ trans('install.index.key009') }}" data-rule="required">
                                                     </div>
                                                 </div>
                                                 <div class="mb-2 row">
-                                                    <label class="col-md-2 col-form-label" for="database_username">{{ trans('install.index.databaseUsername') }}</label>
+                                                    <label class="col-md-2 col-form-label" for="database_username">{{ trans('install.index.key010') }}</label>
                                                     <div class="col-md-10">
-                                                        <input type="text" class="form-control" name="database_username" id="database_username" value="root" placeholder="{{ trans('install.index.enterDatabaseUsername') }}" data-rule="required">
+                                                        <input type="text" class="form-control" name="database_username" id="database_username" value="root" placeholder="{{ trans('install.index.key011') }}" data-rule="required">
                                                     </div>
                                                 </div>
                                                 <div class="mb-2 row">
-                                                    <label class="col-md-2 col-form-label" for="database_password">{{ trans('install.index.databasePassword') }}</label>
+                                                    <label class="col-md-2 col-form-label" for="database_password">{{ trans('install.index.key012') }}</label>
                                                     <div class="col-md-10">
-                                                        <input type="password" name="password" class="form-control" id="database_password" placeholder="{{ trans('install.index.enterDatabasePassword') }}" data-rule="required">
+                                                        <input type="password" name="password" class="form-control" id="database_password" placeholder="{{ trans('install.index.key013') }}" data-rule="required">
                                                     </div>
                                                 </div>
                                                 <div class="mb-2 row">
-                                                    <label class="col-md-2 col-form-label" for="example-password">{{ trans('install.index.overwriteDatabase') }}</label>
+                                                    <label class="col-md-2 col-form-label" for="example-password">{{ trans('install.index.key014') }}</label>
                                                     <div class="col-md-10 d-flex align-items-center">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                            <label class="form-check-label" for="flexRadioDefault1">{{ trans('install.index.cover') }}</label>
+                                                            <label class="form-check-label" for="flexRadioDefault1">{{ trans('install.index.key015') }}</label>
                                                         </div>
                                                         <div class="form-check ms-4">
                                                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                                            <label class="form-check-label" for="flexRadioDefault2">{{ trans('install.index.notCovered') }}</label>
+                                                            <label class="form-check-label" for="flexRadioDefault2">{{ trans('install.index.key016') }}</label>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="mt-4 mb-2 row">
                                                     <div class="col-md-10 offset-md-2">
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">{{ trans('install.index.nextStep') }}</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">{{ trans('install.index.key017') }}</button>
                                                     </div>
                                                 </div>
                                             </form>

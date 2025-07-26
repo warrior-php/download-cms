@@ -67,9 +67,14 @@ class Common
      * @param string $scene     场景名称（可选）
      *
      * @return void
+     * @throws Exception
      */
     protected function validate(string $ruleClass, array $data, string $scene = ''): void
     {
+        // 验证令牌
+        if (!request()->checkToken()) {
+            throw new BusinessException("无效令牌");
+        }
         // 拼接完整类名（如果没带命名空间）
         if (!str_contains($ruleClass, '\\')) {
             $ruleClass = 'App\\Request\\' . $ruleClass;

@@ -1,5 +1,5 @@
 {% extends './layout.Twig' %}
-{% block title %}{{ trans("manage.index.login.pageTitle") }}{% endblock %}
+{% block title %}{{ trans("manage.index.login.key001") }}{% endblock %}
 {% block body %}
     <body class="bg-primary d-flex justify-content-center align-items-center min-vh-100 p-5">
     <div class="container">
@@ -17,21 +17,21 @@
                         </div>
                         <form class="mb-4" id="form" action="{{ url('manage.login') }}" autocomplete="off">
                             <div class="form-group mb-4">
-                                <label class="form-label" for="email">{{ trans("manage.index.login.emailAddress") }}</label>
+                                <label class="form-label" for="email">{{ trans("manage.index.login.key002") }}</label>
                                 <div class="input-group">
-                                    <input class="form-control" name="email" type="email" id="email" data-rule="required" placeholder="{{ trans("manage.index.login.enterEmail") }}" autocomplete="off">
+                                    <input class="form-control" name="email" type="email" id="email" data-rule="required" placeholder="{{ trans("manage.index.login.key003") }}" autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-group mb-4">
-                                <label class="form-label" for="password">{{ trans("manage.index.login.password") }}</label>
+                                <label class="form-label" for="password">{{ trans("manage.index.login.key004") }}</label>
                                 <div class="input-group">
-                                    <input class="form-control" name="password" type="password" data-rule="required" id="password" placeholder="{{ trans("manage.index.login.enterYourPassword") }}" autocomplete="new-password">
+                                    <input class="form-control" name="password" type="password" data-rule="required" id="password" placeholder="{{ trans("manage.index.login.key005") }}" autocomplete="new-password">
                                 </div>
                             </div>
                             <div class="form-group mb-4">
-                                <label class="form-label" for="captcha">{{ trans("manage.index.login.captcha") }}</label>
+                                <label class="form-label" for="captcha">{{ trans("manage.index.login.key008") }}</label>
                                 <div class="input-group">
-                                    <input class="form-control" name="captcha" type="text" data-rule="required" id="captcha" placeholder="{{ trans("manage.index.login.enterCaptcha") }}" autocomplete="new-password">
+                                    <input class="form-control" name="captcha" type="text" data-rule="required" id="captcha" placeholder="{{ trans("manage.index.login.key009") }}" autocomplete="new-password">
                                     <div class="captcha">
                                         <img id="captchaImg" src="{{ url('common.captcha', {'type': 'login-captcha'}) }}" alt="captcha" style="cursor:pointer"/>
                                     </div>
@@ -39,10 +39,10 @@
                             </div>
                             <div class="form-group mb-3">
                                 <input class="form-check-input" type="checkbox" id="rememberMe" checked>
-                                <label class="form-check-label ms-2" for="rememberMe">{{ trans("manage.index.login.rememberMe") }}</label>
+                                <label class="form-check-label ms-2" for="rememberMe">{{ trans("manage.index.login.key006") }}</label>
                             </div>
                             <div class="form-group mb-0 text-center">
-                                <button class="btn btn-primary w-100" type="submit">{{ trans("manage.index.login.logIn") }}</button>
+                                <button class="btn btn-primary w-100" type="submit">{{ trans("manage.index.login.key007") }}</button>
                             </div>
                         </form>
                     </div>

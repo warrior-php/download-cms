@@ -5,52 +5,53 @@ return [
     // 安装器相关
     'install' => [
         'index' => [
-            'pageTitle'             => 'WarriorPHP 安裝精靈',
-            'installedWarning'      => '系統已安裝。若要重新安裝，請刪除 resources/install.lock 檔案。',
-            'installationWizard'    => '安裝精靈',
-            'databaseConfiguration' => '資料庫設定',
-            'installationTips'      => '歡迎使用本內容管理系統！請預先準備好資料庫資料（資料庫位址、用戶名稱、密碼、資料庫名稱），系統會自動檢查您的環境設定，並引導您完成資料庫初始化及管理員帳戶建立。安裝完成後，請務必刪除或重新命名安裝目錄（install），以確保系統安全。如在安裝過程中遇到任何問題，請參考安裝文件或聯絡我們的技術支援。祝您使用愉快！',
-            'databaseAddress'       => '資料庫位址',
-            'enterDatabaseHost'     => '請輸入資料庫主機位址',
-            'databasePort'          => '資料庫埠口',
-            'enterDatabasePort'     => '請輸入資料庫埠口',
-            'databaseUsername'      => '資料庫用戶名稱',
-            'enterDatabaseUsername' => '請輸入資料庫用戶名稱',
-            'databasePassword'      => '資料庫密碼',
-            'enterDatabasePassword' => '請輸入資料庫密碼',
-            'overwriteDatabase'     => '覆蓋資料庫',
-            'cover'                 => '覆蓋',
-            'notCovered'            => '不覆蓋',
-            'nextStep'              => '下一步',
+            'key001' => 'WarriorPHP 安裝精靈',
+            'key002' => '系統已安裝。若要重新安裝，請刪除 resources/install.lock 檔案。',
+            'key003' => '安裝精靈',
+            'key004' => '資料庫設定',
+            'key005' => '歡迎使用本內容管理系統！請預先準備好資料庫資料（資料庫位址、用戶名稱、密碼、資料庫名稱），系統會自動檢查您的環境設定，並引導您完成資料庫初始化及管理員帳戶建立。安裝完成後，請務必刪除或重新命名安裝目錄（install），以確保系統安全。如在安裝過程中遇到任何問題，請參考安裝文件或聯絡我們的技術支援。祝您使用愉快！',
+            'key006' => '資料庫位址',
+            'key007' => '請輸入資料庫主機位址',
+            'key008' => '資料庫埠口',
+            'key009' => '請輸入資料庫埠口',
+            'key010' => '資料庫用戶名稱',
+            'key011' => '請輸入資料庫用戶名稱',
+            'key012' => '資料庫密碼',
+            'key013' => '請輸入資料庫密碼',
+            'key014' => '覆蓋資料庫',
+            'key015' => '覆蓋',
+            'key016' => '不覆蓋',
+            'key017' => '下一步',
         ],
     ],
     // 首页相关
     'home'    => [
         'index' => [
-            'navigation' => '導航'
+            'key001' => '導航'
         ]
     ],
     // 管理相关
     'manage'  => [
         'index'   => [
             'login' => [
-                'pageTitle'         => '管理員登入',
-                'emailAddress'      => '電郵地址',
-                'enterEmail'        => '請輸入你的電郵地址',
-                'password'          => '密碼',
-                'enterYourPassword' => '請輸入你的密碼',
-                'rememberMe'        => '記住我',
-                'logIn'             => '登入',
-                'captcha'           => '驗證碼',
-                'enterCaptcha'      => '請輸入圖形驗證碼',
+                'key001' => '管理員登入',
+                'key002' => '電郵地址',
+                'key003' => '請輸入你的電郵地址',
+                'key004' => '密碼',
+                'key005' => '請輸入你的密碼',
+                'key006' => '記住我',
+                'key007' => '登入',
+                'key008' => '驗證碼',
+                'key009' => '請輸入圖形驗證碼',
             ],
         ],
         // 验证相关
         'request' => [
-            'email'          => '請輸入有效的電子郵件地址',
-            'passwordString' => '密碼必須是字串',
-            'passwordLength' => '密碼長度需介於6到32個字元之間',
-            'captchaLength'  => '驗證碼長度必須為 5 位',
+            'key001' => '請輸入有效的電子郵件地址',
+            'key002' => '密碼必須是字串',
+            'key003' => '密碼長度必須在6到32個字元之間',
+            'key004' => '驗證碼必須是字串',
+            'key005' => '驗證碼長度必須為5位',
         ]
     ],
 ];

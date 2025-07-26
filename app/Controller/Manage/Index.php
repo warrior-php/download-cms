@@ -36,9 +36,6 @@ class Index extends Common
         if ($request->isAjax()) {
             $data = request()->post();
             $this->validate('Manage', $data, 'login');
-            if (!$request->checkToken()) {
-                return result(10001, '无效令牌');
-            }
             return result(200, '登录成功');
         }
         return view('manage/login');

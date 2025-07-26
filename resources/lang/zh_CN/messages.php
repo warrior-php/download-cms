@@ -5,52 +5,53 @@ return [
     // 安装器相关
     'install' => [
         'index' => [
-            'pageTitle'             => 'WarriorPHP 安装向导',
-            'installedWarning'      => '系统已安装完毕，如需重新安装，请删除 resources/install.lock 文件。',
-            'installationWizard'    => '安装向导',
-            'databaseConfiguration' => '数据库配置',
-            'installationTips'      => '欢迎使用本内容管理系统！请提前准备好数据库信息（数据库地址、用户名、密码、数据库名），系统将自动检测您的环境配置，并引导您完成数据库初始化和管理员账户创建。安装后塍后，请务必删除或重命名安装目录（install），以确保系统安全。安装过程中遇到任何问题，请查看安装文档或联系我们的技术支持。祝您使用愉快！',
-            'databaseAddress'       => '数据库地址',
-            'enterDatabaseHost'     => '请输数据库host地址',
-            'databasePort'          => '数据库端口',
-            'enterDatabasePort'     => '请输数据库端口',
-            'databaseUsername'      => '数据库用户名',
-            'enterDatabaseUsername' => '请输数据库用户名',
-            'databasePassword'      => '数据库密码',
-            'enterDatabasePassword' => '请输入数据库密码',
-            'overwriteDatabase'     => '覆盖数据库',
-            'cover'                 => '覆盖',
-            'notCovered'            => '不覆盖',
-            'nextStep'              => '下一步',
+            'key001' => 'WarriorPHP 安装向导',
+            'key002' => '系统已安装完毕，如需重新安装，请删除 resources/install.lock 文件。',
+            'key003' => '安装向导',
+            'key004' => '数据库配置',
+            'key005' => '欢迎使用本内容管理系统！请提前准备好数据库信息（数据库地址、用户名、密码、数据库名），系统将自动检测您的环境配置，并引导您完成数据库初始化和管理员账户创建。安装后塍后，请务必删除或重命名安装目录（install），以确保系统安全。安装过程中遇到任何问题，请查看安装文档或联系我们的技术支持。祝您使用愉快！',
+            'key006' => '数据库地址',
+            'key007' => '请输数据库host地址',
+            'key008' => '数据库端口',
+            'key009' => '请输数据库端口',
+            'key010' => '数据库用户名',
+            'key011' => '请输数据库用户名',
+            'key012' => '数据库密码',
+            'key013' => '请输入数据库密码',
+            'key014' => '覆盖数据库',
+            'key015' => '覆盖',
+            'key016' => '不覆盖',
+            'key017' => '下一步',
         ],
     ],
     // 首页相关
     'home'    => [
         'index' => [
-            'navigation' => '导航'
+            'key001' => '导航'
         ]
     ],
     // 管理相关
     'manage'  => [
         'index'   => [
             'login' => [
-                'pageTitle'         => '管理员登录',
-                'emailAddress'      => 'Email 地址',
-                'enterEmail'        => '请输入 Email 地址',
-                'password'          => '密码',
-                'enterYourPassword' => '输入你的密码',
-                'rememberMe'        => '记住账号',
-                'logIn'             => '登录',
-                'captcha'           => '验证码',
-                'enterCaptcha'      => '请输入图形验证码',
+                'key001' => '管理员登录',
+                'key002' => 'Email 地址',
+                'key003' => '请输入 Email 地址',
+                'key004' => '密码',
+                'key005' => '输入你的密码',
+                'key006' => '记住账号',
+                'key007' => '登录',
+                'key008' => '验证码',
+                'key009' => '请输入图形验证码',
             ],
         ],
         // 验证相关
         'request' => [
-            'email'          => '请输入有效的邮箱地址',
-            'passwordString' => '密码必须是字符串',
-            'passwordLength' => '密码长度需在6到32个字符之间',
-            'captchaLength'  => '验证码长度必须为5位',
+            'key001' => '请输入有效的邮箱地址',
+            'key002' => '密码必须是字符串',
+            'key003' => '密码长度必须在6到32个字符之间',
+            'key004' => '验证码必须是字符串',
+            'key005' => '验证码长度必须是5位',
         ]
     ],
 ];

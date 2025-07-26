@@ -16,14 +16,14 @@ class Manage extends Validator
     protected function rules(): array
     {
         return [
-            'email'    => v::email()->setTemplate(trans('manage.request.email')),
+            'email'    => v::email()->setTemplate(trans('manage.key001')),
             'password' => v::allOf(
-                v::stringType()->setTemplate(trans('manage.request.passwordString')),
-                v::length(6, 32)->setTemplate(trans('manage.request.passwordLength'))
+                v::stringType()->setTemplate(trans('manage.key002')),
+                v::length(6, 32)->setTemplate(trans('manage.key003'))
             ),
             'captcha'  => v::allOf(
-                v::stringType()->setTemplate(trans('manage.request.captchaString')),
-                v::length(5, 5)->setTemplate(trans('manage.request.captchaLength'))
+                v::stringType()->setTemplate(trans('manage.request.key004')),
+                v::length(5, 5)->setTemplate(trans('manage.key005'))
             ),
         ];
     }

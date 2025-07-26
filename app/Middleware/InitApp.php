@@ -57,7 +57,7 @@ class InitApp implements MiddlewareInterface
         }
         // 已安装 & 是安装控制器 -> 抛出异常阻止重复安装
         if ($isInstalled && $isInstallController) {
-            throw new BusinessException(message: trans('install.index.installedWarning'));
+            throw new BusinessException(message: trans('install.index.key002'));
         }
         // 共享全局视图变量
         View::assign([
