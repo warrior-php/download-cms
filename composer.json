@@ -36,6 +36,8 @@
     "illuminate/events": "^12.13",
     "webman/redis": "^2.1",
     "twig/twig": "^3.20",
+    "ramsey/uuid": "^4.7",
+    "godruoyi/php-snowflake": "^3.0",
     "symfony/translation": "^7.2",
     "doctrine/annotations": "^1.14",
     "webman/captcha": "^1.0",

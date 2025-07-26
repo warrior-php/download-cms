@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+use Godruoyi\Snowflake\Snowflake;
+use Ramsey\Uuid\Uuid;
 use support\Response;
 
 if (!function_exists('views_path')) {
@@ -85,6 +87,53 @@ if (!function_exists('parseAcceptLanguage')) {
             return 'zh-CN';
         }
         return $primary;
+    }
+}
+
+// 生成唯一标识符（UUID）
+if (!function_exists('uuid')) {
+    /**
+     * 生成唯一标识符（UUID）。
+     * 根据提供的算法类型生成不同格式的 UUID 或使用雪花算法生成唯一 ID。
+     *
+     * @param int        $type   算法类型
+     *                           0：使用雪花算法生成唯一 ID（默认）。
+     *                           1：基于时间的 UUID（UUID1）。
+     *                           3：基于散列的 UUID（UUID3），使用 MD5 散列算法。
+     *                           4：随机 UUID（UUID4）。
+     *                           5：基于散列的 UUID（UUID5），使用 SHA1 散列算法。
+     *                           6：基于主机 ID 和序列号的 UUID（UUID6）。
+     *                           7：基于时间戳的 UUID（UUID7）。
+     * @param bool       $number 是否返回数字形式的 UUID
+     *                           true：返回整数形式的 UUID（适用于 UUID1、UUID3、UUID4、UUID5）。
+     *                           false：返回字符串形式的 UUID（默认）。
+     * @param int|string $data   用于生成 UUID 的附加数据（用于 UUID3、UUID5）
+     *                           当 $type 为 3 或 5 时需要提供此数据。
+     *
+     * @return string 返回生成的 UUID 字符串或整数。
+     *      - 如果 $number 为 true，返回整数形式的 UUID。
+     *      - 如果 $number 为 false，返回标准字符串形式的 UUID。
+     */
+    function uuid(int $type = 0, bool $number = false, int|string $data = ''): string
+    {
+        // 雪花算法
+        if ($type === 0) {
+            $snowflake = new Snowflake();
+            return $data . $snowflake->id();
+        }
+
+        // 生成不同类型的 UUID
+        $uuid = match ($type) {
+            1 => Uuid::uuid1(), // 基于时间生成 UUID
+            3 => Uuid::uuid3(Uuid::NAMESPACE_DNS, $data), // 基于散列的 MD5 生成 UUID
+            4 => Uuid::uuid4(), // 随机生成 UUID
+            5 => Uuid::uuid5(Uuid::NAMESPACE_DNS, $data), // 基于 SHA1 生成 UUID
+            6 => Uuid::uuid6(), // 基于主机 ID 和序列号生成 UUID
+            default => Uuid::uuid7(), // 默认使用基于时间戳生成 UUID
+        };
+
+        // 根据是否要求数字形式返回 UUID
+        return $number ? $uuid->getInteger()->toString() : $uuid->toString();
     }
 }
 

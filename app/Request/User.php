@@ -22,15 +22,6 @@ class User extends Validator
     protected function rules(): array
     {
         return [
-
-            /**
-             * 用户名验证规则：
-             * - 如果是邮箱格式则视为合法（登录时允许邮箱或用户名登录）
-             * - 否则需满足以下条件：
-             *   - 仅包含字母和数字
-             *   - 不允许空格
-             *   - 长度 4 ~ 18 个字符
-             */
             'username' => v::when(
                 v::email(), // 条件：是邮箱格式
                 v::alwaysValid(), // 如果是邮箱，跳过后续验证
@@ -40,18 +31,7 @@ class User extends Validator
                     v::length(4, 18)->setTemplate(trans("Username must be between 4 and 18 characters long")),
                 ),
             ),
-
-            /**
-             * 邮箱验证规则：
-             * - 必须为合法邮箱格式
-             */
             'email'    => v::email()->setTemplate(trans("Please enter a valid email address")),
-
-            /**
-             * 密码验证规则：
-             * - 必须是字符串
-             * - 长度 6 ~ 32 个字符
-             */
             'password' => v::allOf(
                 v::stringType()->setTemplate(trans("Password must be a string")),
                 v::length(6, 32)->setTemplate(trans("Password must be between 6 and 32 characters long"))

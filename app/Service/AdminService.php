@@ -4,51 +4,82 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Model\AdminModel;
+use App\Utils\Encryptor;
+use Exception;
 use support\exception\BusinessException;
+use support\Log;
 use support\Redis;
 
 class AdminService
 {
     /**
-     * @var int 最大登录尝试次数
+     * @var string 会话加密密钥
+     */
+    public string $sessionKey;
+
+    /**
+     * 最大登录尝试次数
+     *
+     * @var int
      */
     private int $maxAttempts = 3;
 
     /**
-     * @var int 登录锁定时间（秒）
+     * 登录锁定时间（秒）
+     *
+     * @var int
      */
     private int $blockTime = 1800;
 
     /**
-     * 管理员登录
-     *
-     * @param $params
-     *
-     * @return void
+     * 构造函数
      */
-    public function login($params): void
+    public function __construct()
     {
-        $params['ip'] = request()->getRealIp();
-        $attemptsKey = 'login_attempts:' . $params['ip'];
-        if ($this->isIpBlocked($attemptsKey)) {
-            throw new BusinessException(message: trans('错误次数过多，稍后再试'));
-        }
-        $admin = AdminModel::where('email', $params['email'])->first();
-        if (!$admin) {
-            throw new BusinessException(message: trans('帐户不存在'));
-        }
+        $this->sessionKey = uuid(5, false, request()->host() . 'admin_session_key');
     }
 
     /**
-     * 检查IP是否被封锁
+     * 管理员登录
      *
-     * @param string $attemptsKey
+     * @param array $params
      *
-     * @return bool
+     * @return void
+     * @throws Exception
      */
-    private function isIpBlocked(string $attemptsKey): bool
+    public function login(array $params): void
     {
-        $attempts = (int)Redis::get($attemptsKey);
-        return $attempts >= $this->maxAttempts;
+        $ip = request()->getRealIp();
+        $attemptsKey = 'login_attempts:' . $ip;
+        // 检查是否被封锁
+        if (((int)Redis::get($attemptsKey)) >= $this->maxAttempts) {
+            throw new BusinessException(trans('admin.account.login.key010'));
+        }
+        // 校验图形验证码
+        if (strtolower($params['captcha']) !== session('login-captcha')) {
+            throw new BusinessException(trans('admin.account.login.key011'));
+        }
+        // 查找管理员
+        $admin = AdminModel::where('email', $params['email'])->first();
+        // 验证账号和密码
+        if (!$admin || !password_verify($params['password'], $admin->password)) {
+            $attempts = Redis::incr($attemptsKey);
+            Redis::expire($attemptsKey, $this->blockTime);
+            Log::warning(trans('admin.account.login.key012'), [
+                'email'    => $params['email'],
+                'ip'       => $ip,
+                'attempts' => $attempts,
+            ]);
+            throw new BusinessException(trans('admin.account.login.key013'));
+        }
+        $admin->login_at = date('Y-m-d H:i:s');
+        $admin->login_ip = $ip;
+        $admin->save();
+        // 加密用户数据并存储到会话中
+        $enAdmin = Encryptor::encryptDecrypt(json_encode($admin), $this->sessionKey);
+        session()->set('admin', $enAdmin);
+        // 重置错误尝试次数
+        Redis::del($attemptsKey);
     }
+
 }

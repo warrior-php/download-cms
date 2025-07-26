@@ -32,13 +32,12 @@
                                         parent.layer.toast(rel.msg, {'skin': 'success'});
                                         break;
                                     case 204: // 静默待处理
+                                        console.info(rel);
                                         break;
                                     case 302: // 跳转
-                                        if (rel.hasOwnProperty('is_parent') && rel.is_parent === true) {
-                                            rel.hasOwnProperty('url') ? parent.window.location.replace(rel.url) : parent.window.location.reload();
-                                        } else {
-                                            rel.hasOwnProperty('url') ? window.location.replace(rel.url) : window.location.reload();
-                                        }
+                                        $.fn.toast(rel.msg, {skin: 'success', time: 1500}, function () {
+                                            rel.hasOwnProperty('is_parent') && rel.is_parent === true ? rel.hasOwnProperty('url') ? parent.window.location.replace(rel.url) : parent.window.location.reload() : rel.hasOwnProperty('url') ? window.location.replace(rel.url) : window.location.reload();
+                                        });
                                         break;
                                     default: // 失败
                                         parent.layer.toast(rel.msg, {skin: 'warning'});
@@ -46,7 +45,7 @@
                                 }
                                 "function" == typeof options ? options(rel) : "function" == typeof callback && callback(rel);
                                 this.holdSubmit(false);
-                            }, error: (rel) => {
+                            }, error: () => {
                                 this.holdSubmit(false);
                             }
                         })

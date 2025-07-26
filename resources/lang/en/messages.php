@@ -31,18 +31,23 @@ return [
         ],
     ],
     // 管理相关
-    'manage'  => [
-        'index'   => [
+    'admin'   => [
+        'account' => [
             'login' => [
-                'key001' => 'Admin Login',
+                'key001' => 'User Login',
                 'key002' => 'Email Address',
                 'key003' => 'Please enter your email address',
                 'key004' => 'Password',
-                'key005' => 'Please enter your password',
-                'key006' => 'Keep me logged in',
+                'key005' => 'Enter your password',
+                'key006' => 'Remember me',
                 'key007' => 'Log In',
                 'key008' => 'Captcha',
-                'key009' => 'Please enter the captcha code',
+                'key009' => 'Enter the captcha code',
+                'key010' => 'Too many failed login attempts. Please try again later.',
+                'key011' => 'Incorrect captcha code',
+                'key012' => 'Login failed',
+                'key013' => 'Invalid email or password',
+                'key014' => 'Login successful',
             ],
         ],
         // 验证相关

@@ -38,8 +38,8 @@ class Account extends Common
             // 验证数据
             $this->validate('Admin', $params, 'login');
             $this->adminService->login($params);
-            return result(200, '登录成功');
+            return result(302, trans('admin.account.login.key014'), ['url' => url('admin.index')]);
         }
-        return view('manage/login');
+        return view('admin/account/login');
     }
 }

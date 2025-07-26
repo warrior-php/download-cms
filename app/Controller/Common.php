@@ -20,7 +20,7 @@ class Common
      *
      * @var string[]
      */
-    protected array $noNeedLogin = ['login', 'captcha'];
+    protected static array $noNeedLogin = ['login', 'captcha'];
 
     /**
      * 无需鉴权的操作列表
@@ -29,7 +29,7 @@ class Common
      *
      * @var string[]
      */
-    protected array $noNeedAuth = ['logout'];
+    protected static array $noNeedAuth = ['logout'];
 
     /**
      * 验证码接口
@@ -45,7 +45,7 @@ class Common
         $builder = new PhraseBuilder(5, 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ');
         $captcha = new CaptchaBuilder(null, $builder);
         $captcha->build(120, 35);
-        $request->session()->set("captcha-$type", strtolower($captcha->getPhrase()));
+        $request->session()->set($type, strtolower($captcha->getPhrase()));
         $img_content = $captcha->get();
         return response($img_content, 200, ['Content-Type' => 'image/jpeg']);
     }
