@@ -22,6 +22,11 @@ Route::get('/install', [App\Controller\Install\Index::class, 'index'])->name('in
 //    Route::add(['GET', 'POST'], '/index', [App\Controller\User\Home::class, 'index'])->name('user.index'); // 用户首页
 //})->middleware([App\Middleware\Authorize::class]);
 
+// 公共相关
+Route::group('/common', function () {
+    Route::get('/captcha', [App\Controller\Common::class, 'captcha'])->name('common.captcha'); // 验证码
+})->middleware([App\Middleware\Authorize::class]);
+
 // 管理员相关
 Route::group('/manage', function () {
     Route::get('/index', [App\Controller\Manage\Index::class, 'index'])->name('manage.index');

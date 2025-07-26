@@ -53,7 +53,7 @@ class Common
     {
         $builder = new PhraseBuilder(4, 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ');
         $captcha = new CaptchaBuilder(null, $builder);
-        $captcha->build(120);
+        $captcha->build(110, 35);
         $request->session()->set("captcha-$type", strtolower($captcha->getPhrase()));
         $img_content = $captcha->get();
         return response($img_content, 200, ['Content-Type' => 'image/jpeg']);

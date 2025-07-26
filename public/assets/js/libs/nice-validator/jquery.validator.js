@@ -1,3 +1,8 @@
+/*
+ * ! nice-validator 1.1.5
+ * (c) 2012-2020 Jony Zhang <niceue@live.com>, MIT Licensed
+ * https://github.com/niceue/nice-validator
+ */
 ;(function (factory) {
     typeof module === 'object' && module.exports ? module.exports = factory(require('jquery')) :
         typeof define === 'function' && define.amd ? define(['jquery'], factory) :
@@ -96,10 +101,10 @@
                 html += '</span>';
                 return html;
             },
-            msgWrapper: 'span',
+            msgWrapper: 'div',
             msgArrow: '',
             msgIcon: '',
-            msgClass: '',
+            msgClass: 'n-bottom',
             msgStyle: '',
             msgShow: null,
             msgHide: null
@@ -141,9 +146,9 @@
      rules         {Object}                      Custom rules for the current instance
      fields        {Object}                      Field validation configuration
      {String}        key    name|#id
-     {String|Object} value                       Request string or an object which can pass more arguments
+     {String|Object} value                       Rule string or an object which can pass more arguments
 
-     fields[key][rule]       {String}            Request string
+     fields[key][rule]       {String}            Rule string
      fields[key][display]    {String|Function}
      fields[key][tip]        {String}            Custom tip message
      fields[key][ok]         {String}            Custom success message
@@ -238,7 +243,7 @@
     });
 
     /**
-     * Creates a new Request
+     * Creates a new Validator
      *
      * @class
      * @param {Element} element - form element
@@ -1527,7 +1532,7 @@
         }
     }
 
-    // Request converted factory
+    // Rule converted factory
     function _getRule(fn) {
         switch ($.type(fn)) {
             case 'function':
@@ -1616,7 +1621,7 @@
         return Date.parse(str.replace(/\.|\-/g, '/'));
     }
 
-    // Request name only allows alphanumeric characters and underscores
+    // Rule name only allows alphanumeric characters and underscores
     function _checkRuleName(name) {
         return /^\w+$/.test(name);
     }

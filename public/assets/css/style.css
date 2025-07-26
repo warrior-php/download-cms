@@ -1,10 +1,4 @@
 @charset "UTF-8";
-/*
-Template Name: Lunoz - Responsive Bootstrap 5 Admin Dashboard
-Version: 2.0
-�������أ�https://www.bootstrapmb.com 
-File: Main Css File
-*/
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600;700;800&display=swap");
 :root {
   --bs-sidebar-width: 240px;
@@ -19162,4 +19156,23 @@ span.flatpickr-weekday,
 
 .waves-block {
   display: block;
+}
+
+.input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: unset;
+  border-top-left-radius: var(--bs-border-radius);
+  border-bottom-left-radius: var(--bs-border-radius);
+}
+
+.captcha {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.captcha img {
+  border-top-right-radius: var(--bs-border-radius);
+  border-bottom-right-radius: var(--bs-border-radius);
 }
