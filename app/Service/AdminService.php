@@ -19,7 +19,14 @@ class AdminService
      */
     private int $blockTime = 1800;
 
-    public function login($params)
+    /**
+     * 管理员登录
+     *
+     * @param $params
+     *
+     * @return void
+     */
+    public function login($params): void
     {
         $params['ip'] = request()->getRealIp();
         $attemptsKey = 'login_attempts:' . $params['ip'];
