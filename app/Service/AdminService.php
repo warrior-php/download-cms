@@ -65,11 +65,7 @@ class AdminService
         if (!$admin || !password_verify($params['password'], $admin->password)) {
             $attempts = Redis::incr($attemptsKey);
             Redis::expire($attemptsKey, $this->blockTime);
-            Log::warning(trans('admin.account.login.key012'), [
-                'email'    => $params['email'],
-                'ip'       => $ip,
-                'attempts' => $attempts,
-            ]);
+            Log::warning(trans('admin.account.login.key012'), ['email' => $params['email'], 'ip' => $ip, 'attempts' => $attempts]);
             throw new BusinessException(trans('admin.account.login.key013'));
         }
         $admin->login_at = date('Y-m-d H:i:s');

@@ -35,7 +35,6 @@ class Account extends Common
     {
         if ($request->isAjax()) {
             $params = request()->post();
-            // 验证数据
             $this->validate('Admin', $params, 'login');
             $this->adminService->login($params);
             return result(302, trans('admin.account.login.key014'), ['url' => url('admin.index')]);
