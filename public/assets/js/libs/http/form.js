@@ -8,15 +8,13 @@
     $.fn.isForm = function (options = {}, callback = null) {
         let param = {
             type: 'POST', timeout: 10000, datatype: "JSON", ignore: ':hidden', headers: {
-                "X-SOFT-NAME": "HOYM++ SaaS Framework", 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                "X-SOFT-NAME": "WarriorPHP Framework", 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         };
-
         // 如果传递了 options 参数，合并到 param 中
         if (typeof options !== 'function') {
             param = $.extend(param, options);
         }
-
         return this.each(function () {
             $(this).validator({
                 ignore: ':hidden', // 忽略所有隐藏的字段
@@ -31,7 +29,7 @@
                                 NProgress.done();
                                 switch (rel.code) {
                                     case 200: // 提示并跳转或静默
-                                        parent.layer.toast(rel.message, {'skin': 'success'});
+                                        parent.layer.toast(rel.msg, {'skin': 'success'});
                                         break;
                                     case 204: // 静默待处理
                                         break;

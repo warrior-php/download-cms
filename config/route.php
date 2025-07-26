@@ -24,7 +24,7 @@ Route::get('/install', [App\Controller\Install\Index::class, 'index'])->name('in
 
 // 公共相关
 Route::group('/common', function () {
-    Route::get('/captcha', [App\Controller\Common::class, 'captcha'])->name('common.captcha'); // 验证码
+    Route::get('/captcha/{type}', [App\Controller\Common::class, 'captcha'])->name('common.captcha'); // 验证码
 })->middleware([App\Middleware\Authorize::class]);
 
 // 管理员相关

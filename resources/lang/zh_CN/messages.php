@@ -42,6 +42,7 @@ return [
                 'rememberMe'        => '记住账号',
                 'logIn'             => '登录',
                 'captcha'           => '验证码',
+                'enterCaptcha'      => '请输入图形验证码',
             ],
         ],
         // 验证相关
@@ -49,6 +50,7 @@ return [
             'email'          => '请输入有效的邮箱地址',
             'passwordString' => '密码必须是字符串',
             'passwordLength' => '密码长度需在6到32个字符之间',
+            'captchaLength'  => '验证码长度必须为5位',
         ]
     ],
 ];

@@ -35,19 +35,22 @@ return [
         'index'   => [
             'login' => [
                 'pageTitle'         => '管理員登入',
-                'emailAddress'      => 'Email 位址',
-                'enterEmail'        => '請輸入 Email 位址',
+                'emailAddress'      => '電子郵件地址',
+                'enterEmail'        => '請輸入電子郵件地址',
                 'password'          => '密碼',
                 'enterYourPassword' => '請輸入您的密碼',
                 'rememberMe'        => '記住帳號',
                 'logIn'             => '登入',
-            ]
+                'captcha'           => '驗證碼',
+                'enterCaptcha'      => '請輸入圖形驗證碼',
+            ],
         ],
         // 验证相关
         'request' => [
             'email'          => '請輸入有效的電子郵件地址',
             'passwordString' => '密碼必須是字串',
             'passwordLength' => '密碼長度需介於6到32個字元之間',
+            'captchaLength'  => '驗證碼長度必須為 5 位',
         ]
     ],
 ];

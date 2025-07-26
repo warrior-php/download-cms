@@ -34,20 +34,23 @@ return [
     'manage'  => [
         'index'   => [
             'login' => [
-                'pageTitle'         => 'Administrator login',
-                'emailAddress'      => 'Email address',
-                'enterEmail'        => 'Enter email',
-                'password'          => 'password',
-                'enterYourPassword' => 'Enter your password',
-                'rememberMe'        => 'Remember me',
+                'pageTitle'         => 'Admin Login',
+                'emailAddress'      => 'Email Address',
+                'enterEmail'        => 'Please enter your email address',
+                'password'          => 'Password',
+                'enterYourPassword' => 'Please enter your password',
+                'rememberMe'        => 'Keep me logged in',
                 'logIn'             => 'Log In',
-            ]
+                'captcha'           => 'Captcha',
+                'enterCaptcha'      => 'Please enter the captcha code',
+            ],
         ],
         // 验证相关
         'request' => [
             'email'          => 'Please enter a valid email address',
             'passwordString' => 'Password must be a string',
             'passwordLength' => 'Password must be between 6 and 32 characters long',
+            'captchaLength'  => 'Captcha code length must be 5',
         ]
     ],
 ];

@@ -36,18 +36,21 @@ return [
             'login' => [
                 'pageTitle'         => '관리자 로그인',
                 'emailAddress'      => '이메일 주소',
-                'enterEmail'        => '이메일 주소를 입력해주세요',
+                'enterEmail'        => '이메일 주소를 입력하세요',
                 'password'          => '비밀번호',
-                'enterYourPassword' => '비밀번호를 입력해주세요',
+                'enterYourPassword' => '비밀번호를 입력하세요',
                 'rememberMe'        => '로그인 상태 유지',
                 'logIn'             => '로그인',
-            ]
+                'captcha'           => '보안문자',
+                'enterCaptcha'      => '보안문자를 입력하세요',
+            ],
         ],
         // 验证相关
         'request' => [
             'email'          => '유효한 이메일 주소를 입력해주세요.',
             'passwordString' => '비밀번호는 문자로 입력해주세요.',
             'passwordLength' => '비밀번호는 6자 이상 32자 이하로 입력해주세요.',
+            'captchaLength'  => '보안코드는 5자리여야 합니다',
         ]
     ],
 ];

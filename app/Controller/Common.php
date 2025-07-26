@@ -49,11 +49,11 @@ class Common
      * @return Response
      * @throws Exception
      */
-    public function captcha(Request $request, string $type = 'login'): Response
+    public function captcha(Request $request, string $type = 'login-captcha'): Response
     {
-        $builder = new PhraseBuilder(4, 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ');
+        $builder = new PhraseBuilder(5, 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ');
         $captcha = new CaptchaBuilder(null, $builder);
-        $captcha->build(110, 35);
+        $captcha->build(120, 35);
         $request->session()->set("captcha-$type", strtolower($captcha->getPhrase()));
         $img_content = $captcha->get();
         return response($img_content, 200, ['Content-Type' => 'image/jpeg']);
@@ -87,4 +87,5 @@ class Common
         /** @var Validator $validator */
         $validator->validate($data);
     }
+
 }

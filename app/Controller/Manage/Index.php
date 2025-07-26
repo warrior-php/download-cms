@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller\Manage;
 
 use App\Controller\Common;
+use Exception;
 use support\Request;
 use support\Response;
 use Warrior\RateLimiter\Annotation\RateLimiter;
@@ -27,6 +28,7 @@ class Index extends Common
      * @param Request $request
      *
      * @return Response
+     * @throws Exception
      */
     #[RateLimiter(limit: 10, ttl: 60)]
     public function login(Request $request): Response
@@ -34,7 +36,16 @@ class Index extends Common
         if ($request->isAjax()) {
             $data = request()->post();
             $this->validate('Manage', $data, 'login');
+            if (!$request->checkToken()) {
+                return result(10001, '无效令牌');
+            }
+            return result(200, '登录成功');
         }
         return view('manage/login');
+    }
+
+    protected function checkLoginLimit()
+    {
+
     }
 }

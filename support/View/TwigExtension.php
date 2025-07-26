@@ -64,7 +64,7 @@ class TwigExtension extends AbstractExtension
      * URL
      *
      * @param string $path   路径，例如 'admin/index/index'
-     * @param array  $params 参数，例如 ['id' => 1]
+     * @param array  $params 参数，例如 ['id' => 1] 注意：twig模版 使用 {'id':1}
      *
      * @return string
      */
@@ -81,6 +81,6 @@ class TwigExtension extends AbstractExtension
      */
     public function generateCsrfToken(): string
     {
-        return buildToken();
+        return request()->buildToken();
     }
 }

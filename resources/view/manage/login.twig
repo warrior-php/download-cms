@@ -31,9 +31,9 @@
                             <div class="form-group mb-4">
                                 <label class="form-label" for="captcha">{{ trans("manage.index.login.captcha") }}</label>
                                 <div class="input-group">
-                                    <input class="form-control" name="captcha" type="text" data-rule="required" id="captcha" placeholder="{{ trans("manage.index.login.enterYourPassword") }}" autocomplete="new-password">
+                                    <input class="form-control" name="captcha" type="text" data-rule="required" id="captcha" placeholder="{{ trans("manage.index.login.enterCaptcha") }}" autocomplete="new-password">
                                     <div class="captcha">
-                                        <img id="captcha" src="{{ url('common.captcha') }}" alt="captcha"/>
+                                        <img id="captchaImg" src="{{ url('common.captcha', {'type': 'login-captcha'}) }}" alt="captcha" style="cursor:pointer"/>
                                     </div>
                                 </div>
                             </div>
@@ -63,6 +63,17 @@
             NProgress.start();
             NProgress.done();
             $('#form').isForm();
+
+            // 点击验证码图片时刷新
+            $('#captchaImg').on('click', function () {
+                refreshCaptcha(this);
+            });
+
+            // 验证码刷新函数
+            function refreshCaptcha(selector) {
+                const url = "{{ url('common.captcha', {'type': 'login-captcha'}) }}";
+                $(selector).attr('src', url + '?t=' + new Date().getTime());
+            }
         });
     </script>
     </body>

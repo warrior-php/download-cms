@@ -21,6 +21,10 @@ class Manage extends Validator
                 v::stringType()->setTemplate(trans('manage.request.passwordString')),
                 v::length(6, 32)->setTemplate(trans('manage.request.passwordLength'))
             ),
+            'captcha'  => v::allOf(
+                v::stringType()->setTemplate(trans('manage.request.captchaString')),
+                v::length(5, 5)->setTemplate(trans('manage.request.captchaLength'))
+            ),
         ];
     }
 
@@ -34,7 +38,7 @@ class Manage extends Validator
     protected function scenes(): array
     {
         return [
-            'login' => ['email', 'password'],
+            'login' => ['email', 'password', 'captcha'],
         ];
     }
 }

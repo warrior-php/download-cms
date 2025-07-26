@@ -30,12 +30,10 @@ if (!function_exists('url')) {
     function url(string $name = '', array $param = []): string
     {
         $route = route($name, $param);
-
         // Check if the route is '/'
         if ($route === '/') {
             return $route;
         }
-
         // Apply rtrim to remove trailing slashes
         return rtrim($route, '/');
     }
@@ -105,49 +103,20 @@ if (!function_exists('result')) {
         $error = $message[$code] ?? $message[10001];
         if (is_array($msg) || is_object($msg)) {
             $var = $msg;
-            $data['message'] = $error;
+            $data['msg'] = $error;
         } else {
-            $data['message'] = $msg ?: $error;
+            $data['msg'] = $msg ?: $error;
         }
-
         if (isset($var['url'])) {
             $data['url'] = $var['url'];
         }
-
         //控制返回的参数后台是否执行iframe父层
         if (isset($var['is_parent'])) {
             $data['is_parent'] = $var['is_parent'];
         }
         $data['code'] = $code;
         $data['data'] = $var;
-
         return new Response(200, ['Content-Type' => 'application/json'], json_encode($data, JSON_UNESCAPED_UNICODE));
-    }
-}
-
-// 生成请求令牌
-if (!function_exists('')) {
-    /**
-     * 生成请求令牌
-     *
-     * @param string $name 令牌名称
-     * @param string $type 令牌生成方法
-     *
-     * @return string
-     * @throws Exception
-     */
-    function buildToken(string $name = '__token__', string $type = 'md5'): string
-    {
-        // 确保 $type 是一个有效的回调函数或字符串类型（默认使用 'md5'）
-        $type = is_callable($type) ? $type : 'md5';
-
-        // 将 microtime (true) 转换为字符串，避免传递 float 给 md5
-        $token = call_user_func($type, (string)microtime(true));  // 强制转换为字符串
-
-        // 保存生成的令牌到会话中
-        session()->set($name, $token);
-
-        return $token;
     }
 }
 
