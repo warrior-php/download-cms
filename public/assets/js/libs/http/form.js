@@ -8,7 +8,7 @@
     $.fn.isForm = function (options = {}, callback = null) {
         let param = {
             type: 'POST', timeout: 10000, datatype: "JSON", ignore: ':hidden', headers: {
-                "X-SOFT-NAME": "WarriorPHP Framework", 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                "X-SOFT-NAME": "WarriorPHP Framework"
             }
         };
         // 如果传递了 options 参数，合并到 param 中

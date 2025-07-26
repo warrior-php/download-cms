@@ -2,7 +2,6 @@
 
 namespace support\View;
 
-use Exception;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -20,7 +19,6 @@ class TwigExtension extends AbstractExtension
             new TwigFunction('__ASSETS__', [$this, 'getAssetsPath']), // 注册一个名为 "__ASSETS__" 的 Twig 模板函数，
             new TwigFunction('trans', [$this, 'generateTrans']), // 多语言
             new TwigFunction('url', [$this, 'generateUrl']),
-            new TwigFunction('csrf_token', [$this, 'generateCsrfToken'])
         ];
     }
 
@@ -73,14 +71,4 @@ class TwigExtension extends AbstractExtension
         return url($path, $params);
     }
 
-    /**
-     * 生成csrf_token
-     *
-     * @return string
-     * @throws Exception
-     */
-    public function generateCsrfToken(): string
-    {
-        return request()->buildToken();
-    }
 }

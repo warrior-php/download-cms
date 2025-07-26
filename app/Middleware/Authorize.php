@@ -24,9 +24,9 @@ class Authorize implements MiddlewareInterface
     {
         $controllerClass = $request->controller;
         $action = $request->action;
-        $isManage = str_contains($controllerClass, 'Manage');
-        $sessionKey = $isManage ? 'manage' : 'user';
-        $redirectUrl = $isManage ? url('manage.login') : url('user.login');
+        $isAdmin = str_contains($controllerClass, 'Admin');
+        $sessionKey = $isAdmin ? 'admin' : 'user';
+        $redirectUrl = $isAdmin ? url('admin.account.login') : url('user.login');
         // 已登录直接放行
         if (session($sessionKey)) {
             return $handler($request);

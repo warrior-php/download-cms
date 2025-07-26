@@ -28,9 +28,11 @@ Route::group('/common', function () {
 })->middleware([App\Middleware\Authorize::class]);
 
 // 管理员相关
-Route::group('/manage', function () {
-    Route::get('/index', [App\Controller\Manage\Index::class, 'index'])->name('manage.index');
-    Route::add(['GET', 'POST'], '/login', [App\Controller\Manage\Index::class, 'login'])->name('manage.login'); // 管理员登录
+Route::group('/admin', function () {
+    Route::get('/index', [App\Controller\Admin\Index::class, 'index'])->name('admin.index');
+    Route::group('/account', function () {
+        Route::add(['GET', 'POST'], '/login', [App\Controller\Admin\Account::class, 'login'])->name('admin.account.login'); // 管理员登录
+    });
 })->middleware([App\Middleware\Authorize::class]);
 
 // 404处理路由

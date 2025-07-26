@@ -1,25 +1,25 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controller\Manage;
+namespace App\Controller\Admin;
 
 use App\Controller\Common;
+use App\Service\AdminService;
+use DI\Attribute\Inject;
 use Exception;
 use support\Request;
 use support\Response;
 use Warrior\RateLimiter\Annotation\RateLimiter;
 
-class Index extends Common
+class Account extends Common
 {
     /**
-     * 管理后台
+     * 注入账户服务
      *
-     * @return string
+     * @var AdminService
      */
-    public function index(): string
-    {
-        return '管理后台首页';
-    }
+    #[Inject]
+    protected AdminService $adminService;
 
     /**
      * 管理员登录
@@ -34,15 +34,12 @@ class Index extends Common
     public function login(Request $request): Response
     {
         if ($request->isAjax()) {
-            $data = request()->post();
-            $this->validate('Manage', $data, 'login');
+            $params = request()->post();
+            // 验证数据
+            $this->validate('Admin', $params, 'login');
+            $this->adminService->login($params);
             return result(200, '登录成功');
         }
         return view('manage/login');
-    }
-
-    protected function checkLoginLimit()
-    {
-
     }
 }

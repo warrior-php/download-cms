@@ -42,6 +42,7 @@
     "vlucas/phpdotenv": "^5.6",
     "respect/validation": "^2.4",
     "psr/container": "^1.1.1",
+    "php-di/php-di": "^7.0",
     "warrior-php/console": "^1.0",
     "warrior-php/rate-limiter": "^1.0",
     "mailgun/mailgun-php": "^4.3",
@@ -73,7 +74,7 @@
   "prefer-stable": true,
   "config": {
     "allow-plugins": {
-      "php-http/diskey015y": true
+      "php-http/discovery": true
     }
   }
 }

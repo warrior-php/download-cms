@@ -5,7 +5,7 @@ namespace App\Request;
 
 use Respect\Validation\Validator as v;
 
-class Manage extends Validator
+class Admin extends Validator
 {
     /**
      * 定义所有字段的通用验证规则
