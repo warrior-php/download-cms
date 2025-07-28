@@ -50,31 +50,44 @@ class AdminService
     public function login(array $params): void
     {
         $ip = request()->getRealIp();
-        $attemptsKey = 'login_attempts:' . $ip;
-        // 检查是否被封锁
-        if (((int)Redis::get($attemptsKey)) >= $this->maxAttempts) {
-            throw new BusinessException(trans('admin.account.login.key010'));
+        $attemptsKey = 'admin_login:attempts:' . $ip;
+        // 登录失败次数检查
+        if ((int)Redis::get($attemptsKey) >= $this->maxAttempts) {
+            throw new BusinessException(trans('admin.account.login.key010')); // 封锁中
         }
-        // 校验图形验证码
-        if (strtolower($params['captcha']) !== session('login-captcha')) {
-            throw new BusinessException(trans('admin.account.login.key011'));
+        // 图形验证码校验
+        $captcha = mb_strtolower($params['captcha'] ?? '');
+        $sessionCaptcha = mb_strtolower(session('login-captcha') ?? '');
+        session()->delete('login-captcha'); // 验证后立即删除
+        if ($captcha !== $sessionCaptcha) {
+            throw new BusinessException(trans('admin.account.login.key011')); // 验证码错误
         }
         // 查找管理员
         $admin = AdminModel::where('email', $params['email'])->first();
-        // 验证账号和密码
+        // 密码校验失败：记录尝试次数
         if (!$admin || !password_verify($params['password'], $admin->password)) {
             $attempts = Redis::incr($attemptsKey);
             Redis::expire($attemptsKey, $this->blockTime);
-            Log::warning(trans('admin.account.login.key012'), ['email' => $params['email'], 'ip' => $ip, 'attempts' => $attempts]);
-            throw new BusinessException(trans('admin.account.login.key013'));
+            Log::warning(
+                trans('admin.account.login.key012'),
+                ['email' => $params['email'], 'ip' => $ip, 'attempts' => $attempts]
+            );
+            throw new BusinessException(trans('admin.account.login.key013')); // 账号或密码错误
         }
+        // 更新登录记录
         $admin->login_at = date('Y-m-d H:i:s');
         $admin->login_ip = $ip;
         $admin->save();
-        // 加密用户数据并存储到会话中
-        $enAdmin = Encryptor::encryptDecrypt(json_encode($admin), $this->sessionKey);
+        // 仅保存必要字段到 session
+        $sessionData = [
+            'id'       => $admin->id,
+            'email'    => $admin->email,
+            'name'     => $admin->name,
+            'login_at' => $admin->login_at,
+        ];
+        $enAdmin = Encryptor::encryptDecrypt(json_encode($sessionData), $this->sessionKey);
         session()->set('admin', $enAdmin);
-        // 重置错误尝试次数
+        // 登录成功：重置失败计数
         Redis::del($attemptsKey);
     }
 
