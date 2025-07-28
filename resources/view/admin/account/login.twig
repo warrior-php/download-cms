@@ -31,7 +31,7 @@
                             <div class="form-group mb-4">
                                 <label class="form-label" for="captcha">{{ trans("admin.account.login.key008") }}</label>
                                 <div class="input-group">
-                                    <input class="form-control" name="captcha" type="text" data-rule="required" id="captcha" placeholder="{{ trans("admin.account.login.key009") }}" autocomplete="new-password">
+                                    <input class="form-control" maxlength="5" name="captcha" type="text" data-rule="required" id="captcha" placeholder="{{ trans("admin.account.login.key009") }}" autocomplete="new-password">
                                     <div class="captcha">
                                         <img id="captchaImg" src="{{ url('common.captcha', {'type': 'login-captcha'}) }}" alt="captcha" style="cursor:pointer"/>
                                     </div>
