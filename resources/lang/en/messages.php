@@ -24,12 +24,6 @@ return [
             'key017' => 'Next step',
         ],
     ],
-    // 首页相关
-    'home'    => [
-        'index' => [
-            'key001' => '导航'
-        ],
-    ],
     // 管理相关
     'admin'   => [
         'account' => [

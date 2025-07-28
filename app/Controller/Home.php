@@ -3,17 +3,15 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use support\Response;
-
 class Home extends Common
 {
     /**
      * 网站首页
      *
-     * @return Response
+     * @return string
      */
-    public function index(): Response
+    public function index(): string
     {
-        return view('index');
+        return 'Welcome to Warrior PHP';
     }
 }
