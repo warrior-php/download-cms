@@ -4,16 +4,17 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use App\Controller\Common;
+use support\Response;
 
 class Index extends Common
 {
     /**
-     * 管理后台
+     * 管理后台首页
      *
-     * @return string
+     * @return Response
      */
-    public function index(): string
+    public function index(): Response
     {
-        return '管理后台首页';
+        return view('admin/index');
     }
 }

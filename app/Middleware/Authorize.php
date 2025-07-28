@@ -26,7 +26,6 @@ class Authorize implements MiddlewareInterface
     {
         $controllerClass = $request->controller;
         $action = $request->action;
-        static $controllerCache = [];
         if (!isset($controllerCache[$controllerClass])) {
             $reflection = new ReflectionClass($controllerClass);
             $controllerCache[$controllerClass] = $reflection->getDefaultProperties()['noNeedLogin'] ?? [];

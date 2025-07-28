@@ -20,7 +20,7 @@ class Common
      *
      * @var string[]
      */
-    protected static array $noNeedLogin = ['login', 'captcha'];
+    protected array $noNeedLogin = ['login', 'captcha'];
 
     /**
      * 无需鉴权的操作列表
@@ -29,7 +29,7 @@ class Common
      *
      * @var string[]
      */
-    protected static array $noNeedAuth = ['logout'];
+    protected array $noNeedAuth = ['logout'];
 
     /**
      * 验证码接口
