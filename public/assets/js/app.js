@@ -1,7 +1,7 @@
 /**
 * Theme: Lunoz - Responsive Bootstrap 5 Admin Dashboard
 * Author: Myra Studio
-* ¸ü¶àÏÂÔØ£ºhttps://www.bootstrapmb.com 
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½https://www.bootstrapmb.com 
 * Module/App: Layout Js
 */
 
@@ -79,35 +79,6 @@ class ThemeLayout {
         var themeMode = storedThemeMode || systemDefaultMode;
         document.documentElement.setAttribute('data-bs-theme', themeMode);
         sessionStorage.setItem('themeMode', themeMode);
-    }
-
-    initfullScreenListener() {
-        var self = this;
-        var fullScreenBtn = document.querySelector('[data-bs-toggle="fullscreen"]');
-
-        if (fullScreenBtn) {
-            fullScreenBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.body.classList.toggle('fullscreen-enable')
-                if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement) {
-                    if (document.documentElement.requestFullscreen) {
-                        document.documentElement.requestFullscreen();
-                    } else if (document.documentElement.mozRequestFullScreen) {
-                        document.documentElement.mozRequestFullScreen();
-                    } else if (document.documentElement.webkitRequestFullscreen) {
-                        document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-                    }
-                } else {
-                    if (document.cancelFullScreen) {
-                        document.cancelFullScreen();
-                    } else if (document.mozCancelFullScreen) {
-                        document.mozCancelFullScreen();
-                    } else if (document.webkitCancelFullScreen) {
-                        document.webkitCancelFullScreen();
-                    }
-                }
-            });
-        }
     }
 
     initFormValidation() {
@@ -253,7 +224,6 @@ class ThemeLayout {
 
     init() {
         this.initComponents();
-        this.initfullScreenListener();
         this.initFormValidation();
         this.initMainMenu();
         this.initSwitchListener();

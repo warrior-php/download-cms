@@ -26,6 +26,9 @@ return [
     ],
     // 管理相关
     'admin'   => [
+        'index'   => [
+            'key001' => '仪表盘',
+        ],
         'account' => [
             'login' => [
                 'key001' => '管理员登录',
